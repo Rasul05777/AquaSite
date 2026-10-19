@@ -42,3 +42,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 /* Local text contrast, without dimming the photograph. */
 .hero h1{text-shadow:0 2px 12px rgba(5,35,51,.35)}
 .hero-intro p,.hero-heading .eyebrow{text-shadow:0 1px 5px rgba(5,35,51,.65)}
+
+/* Original customer logo, shown without cropping or distortion. */
+.brand-image{display:block;width:auto;height:56px;max-width:100%;object-fit:contain;border-radius:3px}
+@media(max-width:640px){.brand-image{height:48px}}
