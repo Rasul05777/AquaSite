@@ -19,6 +19,8 @@
   <symbol id="drop" viewBox="0 0 32 32"><path d="M16 3S7 15 7 21a9 9 0 0 0 18 0c0-6-9-18-9-18Z"/></symbol>
   <symbol id="gear" viewBox="0 0 32 32"><path d="m13 3-1 4-3 2-4-1-2 5 3 3v3l-2 3 4 4 4-1 3 1 2 4 5-2v-4l3-2 4-1v-5l-4-2-1-3 1-4-5-2-3 3Z"/><circle cx="16" cy="16" r="5"/></symbol>
   <symbol id="wave" viewBox="0 0 32 32"><path d="M3 21c6 1 6-13 15-13 6 0 9 4 9 8-3-4-8-3-8 1 0 6 7 7 11 6M2 27c5 0 5-2 9-2s5 2 9 2 6-2 10-2"/></symbol>
+  <symbol id="blueprint" viewBox="0 0 48 48"><path d="M6 9h32v34H6Zm7 0v34m-1-25h20m-20 9h20m-20 9h20M19 16v4m8 5v4m-8 5v4M38 9V5a4 4 0 0 1 8 0v31h-8"/></symbol>
+  <symbol id="helmet" viewBox="0 0 48 48"><path d="M5 33c0-13 7-22 15-23m8 0c8 1 15 10 15 23M20 6h8v23h-8ZM12 15l2 15m22-15-2 15M4 33c10 7 30 7 40 0l2 7c-12 8-32 8-44 0Z"/></symbol>
   <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
 </defs></svg>
 <main>
@@ -35,19 +37,20 @@
     <img class="hero-photo" src="/images/hero-aquaspektr.png" alt="Бассейн с центральной чашей и логотипом AquaSpektr, вид сверху" width="1280" height="617" fetchpriority="high">
     <div class="hero-summary">
     <div class="hero-content container">
-      <div class="hero-heading"><h1 id="hero-title"><span>Бассейны, созданные</span> <span>для вашей жизни</span></h1></div>
+      <div class="hero-heading"><p class="eyebrow light">АКВАСПЕКТР / ДАГЕСТАН</p><h1 id="hero-title">Бассейны, созданные для вашей жизни</h1></div>
       <div class="hero-intro"><p>Проектируем, строим и обслуживаем бассейны, аквапарки и фонтаны в Дагестане и на юге России</p><button class="button button-blue" data-quote>Рассчитать стоимость <svg><use href="#arrow"/></svg></button></div>
 
+      <a class="hero-project-link" href="#projects">Смотреть проекты <svg aria-hidden="true"><use href="#arrow"/></svg></a>
     </div>
     </div>
   </section>
   <section class="service-strip" aria-label="Наши услуги"><div class="container service-strip-grid">
-    <a href="#services"><svg aria-hidden="true"><use href="#ruler"/></svg><span><strong>Проектирование</strong><span>Проект и подбор оборудования</span></span></a>
-    <a href="#services"><svg aria-hidden="true"><use href="#gear"/></svg><span><strong>Строительство</strong><span>Реализация под ключ</span></span></a>
-    <a href="#services"><svg aria-hidden="true"><use href="#drop"/></svg><span><strong>Обслуживание</strong><span>Уход и техническая поддержка</span></span></a>
+    <a href="#services"><svg aria-hidden="true"><use href="#blueprint"/></svg><span><strong>Проектирование</strong><span>Продуманные решения<br>для любых задач</span></span></a>
+    <a href="#services"><svg aria-hidden="true"><use href="#helmet"/></svg><span><strong>Строительство</strong><span>Современные технологии<br>и безупречное качество</span></span></a>
+    <a href="#services"><svg aria-hidden="true"><use href="#gear"/></svg><span><strong>Обслуживание</strong><span>Надёжный сервис<br>и забота о вашем бассейне</span></span></a>
   </div></section>
   <section class="projects" id="projects" aria-labelledby="projects-title"><div class="container">
-    <div class="section-heading"><div><p class="eyebrow">НАШИ РАБОТЫ</p><h2 id="projects-title">Вода. Архитектура. Комфорт.</h2></div><p class="section-intro">Индивидуальные решения для частных домов<br class="desktop-break"> и коммерческих объектов в Дагестане. От идеи<br class="desktop-break"> и проектирования до строительства и обслуживания.</p></div>
+    <div class="section-heading"><div><p class="eyebrow">НАШИ РАБОТЫ</p><h2 id="projects-title">Вода. Архитектура. Комфорт.</h2></div><a class="all-projects-link" href="#project-grid">Все проекты <svg aria-hidden="true"><use href="#arrow"/></svg></a><p class="section-intro">Индивидуальные решения для частных домов<br class="desktop-break"> и коммерческих объектов в Дагестане. От идеи<br class="desktop-break"> и проектирования до строительства и обслуживания.</p></div>
     <div class="filters" role="group" aria-label="Фильтр проектов"><button class="filter active" data-filter="all" aria-pressed="true">Все проекты</button><button class="filter" data-filter="private" aria-pressed="false">Частные бассейны</button><button class="filter" data-filter="park" aria-pressed="false">Аквапарки</button><button class="filter" data-filter="spa" aria-pressed="false">СПА</button><button class="filter" data-filter="wave" aria-pressed="false">Искусственные волны</button></div>
     <div class="project-grid" id="project-grid"></div><p id="filter-status" class="sr-only" aria-live="polite"></p>
     <p class="portfolio-note">Визуализации и фотографии — примеры решений. Состав проекта подбирается индивидуально.</p>

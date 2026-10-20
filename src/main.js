@@ -65,3 +65,7 @@ mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu)
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
 window.matchMedia('(min-width:641px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
 document.querySelector('#year').textContent=new Date().getFullYear();
+// The overview link also clears any active category filter.
+document.querySelector('.all-projects-link')?.addEventListener('click',()=>{
+  document.querySelector('[data-filter="all"]').click();
+});
