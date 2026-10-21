@@ -157,3 +157,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 @media(max-width:900px){.hero .header{height:96px;min-height:96px}.hero .mobile-nav{top:96px}}
 @media(max-width:640px){.hero .header{height:88px;min-height:88px;gap:10px}.hero .mobile-nav{top:88px}.header-actions{padding-left:0}.catalog-grid,.catalog-gallery{grid-template-columns:1fr;gap:20px}.catalog-group>img,.catalog-group>.category-symbol{height:220px}.project-catalog{padding:24px 0 40px}.catalog-group>span:last-child{font-size:18px;padding:20px}.catalog-breadcrumbs{font-size:12px}.catalog-gallery figcaption{font-size:14px}}
 .project-catalog h1:focus{outline:none}
+
+/* Model chart stays complete and readable at the end of the gallery. */
+.catalog-gallery .gallery-wide{grid-column:1/-1}
+.catalog-gallery .gallery-wide img{aspect-ratio:auto}
