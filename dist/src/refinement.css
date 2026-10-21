@@ -149,7 +149,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 .catalog-group{border:1px solid #d4e3e8;border-radius:16px;overflow:hidden;background:white;display:flex;flex-direction:column}
 .catalog-group>img,.catalog-group>.category-symbol{width:100%;height:260px;object-fit:cover}.catalog-group>span:last-child{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px;font-size:20px}
 .catalog-gallery figure{margin:0;min-width:0;background:white;border:1px solid #d4e3e8;border-radius:12px;overflow:hidden}
-.catalog-gallery button{display:block;border:0;padding:0;width:100%;background:#e7eff2;cursor:zoom-in}.catalog-gallery img,.catalog-gallery video{display:block;width:100%;height:auto;aspect-ratio:1.39;object-fit:contain}.catalog-gallery figcaption{padding:18px 20px;font-size:16px;line-height:1.5}
+.catalog-gallery button{display:block;border:0;padding:0;width:100%;background:#e7eff2;cursor:zoom-in}.catalog-gallery img,.catalog-gallery video{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center}.catalog-gallery figcaption{padding:18px 20px;font-size:16px;line-height:1.5}
 .catalog-back{display:inline-flex;min-height:44px;align-items:center;margin-top:32px;border-bottom:1px solid #80b2c2}
 .catalog-empty{padding:44px 28px;border:1px solid #d4e3e8;border-radius:12px;background:white;color:#526f80}
 .gallery-preview{display:block;width:100%;height:auto}.detail-dialog:has(.gallery-preview){max-width:960px}
@@ -160,7 +160,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 
 /* Model chart stays complete and readable at the end of the gallery. */
 .catalog-gallery .gallery-wide{grid-column:1/-1}
-.catalog-gallery .gallery-wide img{aspect-ratio:auto}
+.catalog-gallery .gallery-wide img{aspect-ratio:auto;object-fit:contain}
 
 /* Media-only gallery frames; accessible labels remain in the markup. */
 .catalog-gallery{gap:28px}
@@ -169,3 +169,10 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 .catalog-gallery button:focus-visible{outline-offset:-4px}
 .catalog-gallery img,.catalog-gallery video{background:#edf3f6}
 @media(max-width:640px){.catalog-gallery{gap:20px}.catalog-gallery figure{padding:4px;border-radius:14px}.catalog-gallery figure>button,.catalog-gallery figure>video{border-radius:10px}}
+
+/* Stable, matching preview sizes for landscape and portrait source media. */
+.catalog-gallery figure{align-self:start}
+.catalog-gallery figure:not(.gallery-wide)>button{aspect-ratio:4/3}
+.catalog-gallery figure:not(.gallery-wide)>button>img{height:100%;aspect-ratio:auto}
+.catalog-gallery video:fullscreen{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#000}
+.catalog-gallery video:-webkit-full-screen{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#000}
