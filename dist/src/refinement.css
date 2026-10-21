@@ -161,3 +161,11 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 /* Model chart stays complete and readable at the end of the gallery. */
 .catalog-gallery .gallery-wide{grid-column:1/-1}
 .catalog-gallery .gallery-wide img{aspect-ratio:auto}
+
+/* Media-only gallery frames; accessible labels remain in the markup. */
+.catalog-gallery{gap:28px}
+.catalog-gallery figure{border:1px solid #d8e5eb;border-radius:18px;padding:6px;background:#fff;box-shadow:0 5px 20px #07324709}
+.catalog-gallery figure>button,.catalog-gallery figure>video{border-radius:12px;overflow:hidden}
+.catalog-gallery button:focus-visible{outline-offset:-4px}
+.catalog-gallery img,.catalog-gallery video{background:#edf3f6}
+@media(max-width:640px){.catalog-gallery{gap:20px}.catalog-gallery figure{padding:4px;border-radius:14px}.catalog-gallery figure>button,.catalog-gallery figure>video{border-radius:10px}}

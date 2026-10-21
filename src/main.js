@@ -114,7 +114,7 @@ function renderCatalog(){
 }
 function renderGallery(group){
   if(!group.media.length)return '<div class="catalog-empty">Примеры скоро появятся.</div>';
-  return `<div class="catalog-gallery">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}<figcaption>${m.title}</figcaption></figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
+  return `<div class="catalog-gallery">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}</figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
 }
 catalog.addEventListener('click',event=>{
   const button=event.target.closest('[data-preview]');if(!button)return;
@@ -123,7 +123,7 @@ catalog.addEventListener('click',event=>{
   const collection=category?.groups ? category.groups.find(g=>g.id===groupId) : category;
   const media=collection?.media[Number(button.dataset.preview)];
   if(!media)return;
-  detailContent.innerHTML=`<img class="gallery-preview" src="${media.src}" alt="${media.title}"><div class="detail-body"><h2 id="detail-title">${media.title}</h2></div>`;
+  detailContent.innerHTML=`<img class="gallery-preview" src="${media.src}" alt="${media.title}"><h2 class="sr-only" id="detail-title">${media.title}</h2>`;
   detailDialog.showModal();
 });
 window.addEventListener('hashchange',()=>{closeMenu();renderCatalog();});
