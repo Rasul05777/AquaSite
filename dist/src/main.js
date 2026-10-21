@@ -1,16 +1,17 @@
+import { projectMedia } from './project-media.js';
 const icon = (name) => `<svg aria-hidden="true"><use href="#${name}"/></svg>`;
 const categories = [
-  {id:'park', title:'Аквапарки', image:'/images/waterpark.png', groups:[{id:'waterparks',title:'Водные комплексы',media:[{src:'/images/waterpark.png',title:'Комплекс водных развлечений'}]}]},
-  {id:'public', title:'Общественные бассейны', image:'/images/spa-pool.png', groups:[{id:'spa',title:'Бассейны для СПА и отелей',media:[{src:'/images/spa-pool.png',title:'Крытый бассейн'}]},{id:'sport',title:'Спортивные бассейны',media:[]}]},
+  {id:'park', title:'Аквапарки', image:'/images/waterpark.png', media:projectMedia.park},
+  {id:'public', title:'Общественные бассейны', image:'/images/spa-pool.png', media:[{src:'/images/spa-pool.png',title:'Крытый бассейн'}]},
   {id:'private', title:'Частные бассейны', image:'/images/private-pool.jpg', groups:[{id:'composite',title:'Композитные бассейны',cover:'/images/composite-cover.png',media:[
     {src:'/images/composite-1.png',title:'Прямоугольная чаша с широкими ступенями'},
     {src:'/images/composite-2.png',title:'Чаша с полукруглой лестницей'},
     {src:'/images/composite-3.png',title:'Бассейн с террасой в саду'},
     {src:'/images/composite-4.png',title:'Овальная чаша с зоной отдыха'},
     {src:'/images/composite-models.png',title:'Схема моделей и размеров композитных бассейнов',layout:'wide'}
-  ]},{id:'concrete',title:'Бетонные бассейны',media:[]}]},
-  {id:'plunge',title:'Купели',symbol:'drop',groups:[{id:'outdoor',title:'Уличные купели',media:[]},{id:'indoor',title:'Купели для помещений',media:[]}]},
-  {id:'sauna',title:'Модульные Бани',symbol:'house',groups:[{id:'steam',title:'Парные',media:[]},{id:'complex',title:'Банные комплексы',media:[]}]}
+  ]},{id:'concrete',title:'Бетонные бассейны',media:projectMedia.concrete}]},
+  {id:'plunge',title:'Купели',symbol:'drop',media:[]},
+  {id:'sauna',title:'Модульные Бани',symbol:'house',media:[]}
 ];
 const cover = (image, title, symbol='drop') => image
   ? `<img src="${image}" alt="${title}" loading="lazy" width="700" height="470">`
@@ -104,21 +105,23 @@ function renderCatalog(){
     if(wasCatalog)document.getElementById(parts[0] || 'home')?.scrollIntoView({behavior:'instant',block:'start'});
     return;
   }
-  const group=category.groups.find(g=>g.id===parts[2]);
+  const group=category.groups?.find(g=>g.id===parts[2]);
   const title=group?.title || category.title;
   document.title=`${title} — Акваспектр`;
-  catalog.innerHTML=`<div class="container"><nav class="catalog-breadcrumbs" aria-label="Путь по проектам"><a href="#projects">Все проекты</a><span>/</span>${group?`<a href="#projects/${category.id}">${category.title}</a><span>/</span>`:''}<span aria-current="page">${title}</span></nav><h1 tabindex="-1">${title}</h1>${group ? renderGallery(group) : `<div class="catalog-grid">${category.groups.map(g=>`<a class="catalog-group" href="#projects/${category.id}/${g.id}">${cover(g.cover || g.media[0]?.src,g.title,category.symbol)}<span><strong>${g.title}</strong>${icon('arrow')}</span></a>`).join('')}</div>`}<a class="catalog-back" href="${group?'#projects/'+category.id:'#projects'}">← ${group?'Все группы':'Все направления'}</a></div>`;
+  catalog.innerHTML=`<div class="container"><nav class="catalog-breadcrumbs" aria-label="Путь по проектам"><a href="#projects">Все проекты</a><span>/</span>${group?`<a href="#projects/${category.id}">${category.title}</a><span>/</span>`:''}<span aria-current="page">${title}</span></nav><h1 tabindex="-1">${title}</h1>${!category.groups ? renderGallery(category) : group ? renderGallery(group) : `<div class="catalog-grid">${category.groups.map(g=>`<a class="catalog-group" href="#projects/${category.id}/${g.id}">${cover(g.cover || g.media[0]?.src,g.title,category.symbol)}<span><strong>${g.title}</strong>${icon('arrow')}</span></a>`).join('')}</div>`}<a class="catalog-back" href="${group?'#projects/'+category.id:'#projects'}">← ${group?'Все группы':'Все направления'}</a></div>`;
   catalog.querySelector('h1').focus({preventScroll:true});
   window.scrollTo({top:0,behavior:'instant'});
 }
 function renderGallery(group){
-  if(!group.media.length)return '<div class="catalog-empty">Примеры в этой группе скоро появятся.</div>';
-  return `<div class="catalog-gallery">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls preload="metadata" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}<figcaption>${m.title}</figcaption></figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
+  if(!group.media.length)return '<div class="catalog-empty">Примеры скоро появятся.</div>';
+  return `<div class="catalog-gallery">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}<figcaption>${m.title}</figcaption></figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
 }
 catalog.addEventListener('click',event=>{
   const button=event.target.closest('[data-preview]');if(!button)return;
   const [,categoryId,groupId]=location.hash.slice(1).split('/');
-  const media=categories.find(c=>c.id===categoryId)?.groups.find(g=>g.id===groupId)?.media[Number(button.dataset.preview)];
+  const category=categories.find(c=>c.id===categoryId);
+  const collection=category?.groups ? category.groups.find(g=>g.id===groupId) : category;
+  const media=collection?.media[Number(button.dataset.preview)];
   if(!media)return;
   detailContent.innerHTML=`<img class="gallery-preview" src="${media.src}" alt="${media.title}"><div class="detail-body"><h2 id="detail-title">${media.title}</h2></div>`;
   detailDialog.showModal();
