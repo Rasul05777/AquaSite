@@ -1,21 +1,22 @@
 const icon = (name) => `<svg aria-hidden="true"><use href="#${name}"/></svg>`;
-const projects = [
-  {id:'private',category:'private',title:'Частный бассейн',meta:'5 × 3 м · Подогрев',image:'/images/private-pool.jpg',alt:'Открытый бассейн с голубой водой и зоной отдыха',description:'Компактный и комфортный бассейн для частного дома с системой подогрева и современной отделкой.',details:'Место для спокойного отдыха рядом с домом. Продумываем расположение чаши, безопасные подходы и оборудование так, чтобы бассейном было удобно пользоваться каждый день.',features:['Система фильтрации и подогрева','Подводное освещение','Отделка чаши и обустройство зоны отдыха'],type:'Частный бассейн'},
-  {id:'park',category:'park',title:'Аквапарк',meta:'Санаторий «Каспий»',image:'/images/waterpark.png',alt:'Вид сверху на аквапарк с горками и извилистыми бассейнами',description:'Комплекс водных развлечений: горки, детский городок, волновой бассейн 1280 м², ленивая река 400 метров.',details:'Водное пространство для семейного отдыха. Объединяем аттракционы, детские зоны и бассейны в единый комплекс с понятной навигацией и продуманной инфраструктурой.',features:['Водные горки и детские аттракционы','Волновой бассейн и ленивая река','Водоподготовка для коммерческих объектов'],type:'Аквапарк'},
-  {id:'spa',category:'spa',title:'Бассейн в СПА',meta:'25 × 11 м · Дербент',image:'/images/spa-pool.png',alt:'Современный крытый бассейн с панорамными окнами',description:'Современный бассейн в СПА-центре с системой подогрева и премиальной отделкой.',details:'Тихая вода, комфортная температура и архитектура, которая помогает замедлиться. Проектируем бассейн как часть целостного пространства для восстановления и отдыха.',features:['Подогрев и автоматическая водоподготовка','Архитектурная и подводная подсветка','Интеграция с пространством СПА'],type:'Бассейн в СПА'},
-
-];
 const categories = [
-  {id:'park', title:'Аквапарки', description:'Водные горки, семейные зоны отдыха и комплексы водных развлечений.', example:projects.find(p=>p.id==='park')},
-  {id:'public', title:'Общественные бассейны', description:'Бассейны для отелей, санаториев, СПА и спортивных комплексов.', example:projects.find(p=>p.id==='spa')},
-  {id:'private', title:'Частные бассейны', description:'Индивидуальные решения для отдыха и плавания рядом с вашим домом.', example:projects.find(p=>p.id==='private')}
+  {id:'park', title:'Аквапарки', image:'/images/waterpark.png', groups:[{id:'waterparks',title:'Водные комплексы',media:[{src:'/images/waterpark.png',title:'Комплекс водных развлечений'}]}]},
+  {id:'public', title:'Общественные бассейны', image:'/images/spa-pool.png', groups:[{id:'spa',title:'Бассейны для СПА и отелей',media:[{src:'/images/spa-pool.png',title:'Крытый бассейн'}]},{id:'sport',title:'Спортивные бассейны',media:[]}]},
+  {id:'private', title:'Частные бассейны', image:'/images/private-pool.jpg', groups:[{id:'composite',title:'Композитные бассейны',media:[
+    {src:'/images/composite-1.png',title:'Прямоугольная чаша с широкими ступенями'},
+    {src:'/images/composite-2.png',title:'Чаша с полукруглой лестницей'},
+    {src:'/images/composite-3.png',title:'Бассейн с террасой в саду'},
+    {src:'/images/composite-4.png',title:'Овальная чаша с зоной отдыха'}
+  ]},{id:'concrete',title:'Бетонные бассейны',media:[]}]},
+  {id:'plunge',title:'Купели',symbol:'drop',groups:[{id:'outdoor',title:'Уличные купели',media:[]},{id:'indoor',title:'Купели для помещений',media:[]}]},
+  {id:'sauna',title:'Бани',symbol:'house',groups:[{id:'steam',title:'Парные',media:[]},{id:'complex',title:'Банные комплексы',media:[]}]}
 ];
+const cover = (image, title, symbol='drop') => image
+  ? `<img src="${image}" alt="${title}" loading="lazy" width="700" height="470">`
+  : `<span class="category-symbol" aria-hidden="true">${icon(symbol)}</span>`;
 const grid = document.querySelector('#project-grid');
-function renderProjects() {
-  grid.innerHTML=categories.map(c=>`<article class="project-card"><button class="project-image" data-project="${c.id}" aria-label="Смотреть примеры: ${c.title}"><img src="${c.example.image}" alt="${c.example.alt}" loading="lazy" width="700" height="470"></button><div class="project-content"><h3>${c.title}</h3><p class="project-description">${c.description}</p><button class="project-link" data-project="${c.id}">Смотреть примеры ${icon('arrow')}</button></div></article>`).join('');
-  document.querySelector('#filter-status').textContent='Три направления проектов';
-}
-renderProjects();
+grid.innerHTML=categories.map(c=>`<article class="project-card"><a class="project-image" href="#projects/${c.id}" aria-label="Смотреть примеры: ${c.title}">${cover(c.image,c.title,c.symbol)}</a><div class="project-content"><h3><a href="#projects/${c.id}">${c.title}</a></h3><a class="project-link" href="#projects/${c.id}">Смотреть примеры ${icon('arrow')}</a></div></article>`).join('');
+document.querySelector('#filter-status').textContent='Пять направлений проектов';
 const detailDialog=document.querySelector('#detail-dialog');
 const quoteDialog=document.querySelector('#quote-dialog');
 const form=document.querySelector('#quote-form');
@@ -28,13 +29,6 @@ function openQuote(type){
   quoteDialog.showModal();
 }
 document.querySelectorAll('[data-quote]').forEach(b=>b.addEventListener('click',()=>openQuote()));
-grid.addEventListener('click',event=>{
-  const trigger=event.target.closest('[data-project]');if(!trigger)return;
-  const category=categories.find(c=>c.id===trigger.dataset.project);
-  const p=category.example;
-  detailContent.innerHTML=`<img class="detail-photo" src="${p.image}" alt="${p.alt}"><div class="detail-body"><p class="eyebrow">Пример решения</p><h2 id="detail-title">${category.title}</h2><h3 class="example-title">${p.title}</h3><p class="project-meta">${p.meta}</p><p>${p.details}</p><ul class="detail-features">${p.features.map(f=>`<li>${icon('check')}${f}</li>`).join('')}</ul><p class="form-note" style="margin:16px 0 0">Изображение иллюстрирует решение и не является фотографией выполненного объекта.</p></div>`;
-  detailDialog.showModal();
-});
 document.querySelector('#company-details').addEventListener('click',()=>{
   detailContent.innerHTML=`<div class="detail-body" style="padding-top:48px"><p class="eyebrow">АКВАСПЕКТР / ДАГЕСТАН</p><h2 id="detail-title">Один партнёр.<br>Полный цикл работ.</h2><p>Помогаем пройти весь путь от первой идеи до готового бассейна. Работаем с частными и коммерческими пространствами в Дагестане и по всему Югу России.</p><ul class="detail-features"><li>${icon('check')}Обсуждаем задачи, участок и пожелания</li><li>${icon('check')}Готовим проект и подбираем оборудование</li><li>${icon('check')}Строим, монтируем и запускаем системы</li><li>${icon('check')}Обеспечиваем сервисное обслуживание</li></ul><button class="button button-blue" id="company-quote">Обсудить ваш проект ${icon('arrow')}</button></div>`;
   document.querySelector('#company-quote').addEventListener('click',()=>openQuote());detailDialog.showModal();
@@ -93,3 +87,40 @@ document.addEventListener('click', async (event) => {
     copyStatus.textContent = copied ? `Номер ${number} скопирован` : 'Выделите номер выше и скопируйте вручную.';
   }
 });
+
+
+// Hash routes work on static hosting and preserve browser Back/Forward navigation.
+// Media entries accept {type:'video', src, poster, title} when videos are available.
+const catalog=document.querySelector('#project-catalog');
+function renderCatalog(){
+  const parts=location.hash.slice(1).split('/');
+  const category=parts[0]==='projects' && categories.find(c=>c.id===parts[1]);
+  const wasCatalog=document.body.classList.contains('catalog-mode');
+  document.body.classList.toggle('catalog-mode',Boolean(category));
+  catalog.hidden=!category;
+  if(!category){
+    document.title='Акваспектр — бассейны, аквапарки и искусственные волны';
+    if(wasCatalog)document.getElementById(parts[0] || 'home')?.scrollIntoView({behavior:'instant',block:'start'});
+    return;
+  }
+  const group=category.groups.find(g=>g.id===parts[2]);
+  const title=group?.title || category.title;
+  document.title=`${title} — Акваспектр`;
+  catalog.innerHTML=`<div class="container"><nav class="catalog-breadcrumbs" aria-label="Путь по проектам"><a href="#projects">Все проекты</a><span>/</span>${group?`<a href="#projects/${category.id}">${category.title}</a><span>/</span>`:''}<span aria-current="page">${title}</span></nav><h1 tabindex="-1">${title}</h1>${group ? renderGallery(group) : `<div class="catalog-grid">${category.groups.map(g=>`<a class="catalog-group" href="#projects/${category.id}/${g.id}">${cover(g.media[0]?.src,g.title,category.symbol)}<span><strong>${g.title}</strong>${icon('arrow')}</span></a>`).join('')}</div>`}<a class="catalog-back" href="${group?'#projects/'+category.id:'#projects'}">← ${group?'Все группы':'Все направления'}</a></div>`;
+  catalog.querySelector('h1').focus({preventScroll:true});
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function renderGallery(group){
+  if(!group.media.length)return '<div class="catalog-empty">Примеры в этой группе скоро появятся.</div>';
+  return `<div class="catalog-gallery">${group.media.map((m,i)=>`<figure>${m.type==='video'?`<video controls preload="metadata" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}<figcaption>${m.title}</figcaption></figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
+}
+catalog.addEventListener('click',event=>{
+  const button=event.target.closest('[data-preview]');if(!button)return;
+  const [,categoryId,groupId]=location.hash.slice(1).split('/');
+  const media=categories.find(c=>c.id===categoryId)?.groups.find(g=>g.id===groupId)?.media[Number(button.dataset.preview)];
+  if(!media)return;
+  detailContent.innerHTML=`<img class="gallery-preview" src="${media.src}" alt="${media.title}"><div class="detail-body"><h2 id="detail-title">${media.title}</h2></div>`;
+  detailDialog.showModal();
+});
+window.addEventListener('hashchange',()=>{closeMenu();renderCatalog();});
+renderCatalog();

@@ -130,3 +130,30 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 @media(max-width:900px){.hero-summary{order:1;padding:36px 32px}.hero-photo{order:2;height:auto;border-radius:16px 16px 0 0}.hero h1{font-size:48px}.hero-content{gap:24px}.hero-kicker{font-size:12px;margin-bottom:24px}.hero-intro p{font-size:19px}.hero-intro .button{font-size:15px}.hero-project-link{font-size:14px}}
 @media(max-width:640px){.hero-summary{padding:30px 20px}.hero h1{font-size:clamp(36px,10vw,48px);letter-spacing:-1px}.hero-kicker{font-size:11px;letter-spacing:.16em;margin-bottom:24px}.hero-intro p{font-size:18px}.hero-intro .button{font-size:14px;padding:16px 24px}.hero-content{gap:22px}.section-heading h2{max-width:none}}
 .hero h1 span{display:block;white-space:normal}
+
+/* Framed navigation from the supplied header reference. */
+.header .nav{gap:16px}
+.header .nav a{justify-content:center;min-width:126px;padding:15px 22px;border:1px solid #69c8e4;border-radius:12px;font-size:16px;font-weight:750;min-height:56px}
+.header .nav a:hover,.header .nav a:focus-visible{background:#ffffff12}
+.hero .header{min-height:110px;height:110px;gap:24px}
+.header-actions{gap:20px;padding-left:22px}.header .nav a:first-child{background:#ffffff0d}
+.category-symbol{display:grid;place-items:center;width:100%;height:100%;min-height:200px;background:linear-gradient(135deg,#dceff3,#f1f7f6);color:#24647a}
+.category-symbol svg{height:80px;width:80px;stroke-width:1.2}
+.project-content .project-link{margin-top:auto}.project-content h3{margin-bottom:16px}.project-content{gap:12px}
+.catalog-mode main>section:not(.hero):not(.project-catalog){display:none}
+.catalog-mode .hero{display:block}.catalog-mode .hero>.hero-photo,.catalog-mode .hero>.hero-summary{display:none}
+.project-catalog{background:#f4f8fa;min-height:65vh;padding:32px 0 64px}.project-catalog[hidden]{display:none}
+.catalog-breadcrumbs{display:flex;flex-wrap:wrap;gap:10px;line-height:1.6;font-size:13px;color:#526f80;margin-bottom:28px}.catalog-breadcrumbs a{text-decoration:underline;text-underline-offset:4px}
+.project-catalog h1{font-size:clamp(30px,4vw,48px);white-space:normal;line-height:1.15;letter-spacing:-1px;margin-bottom:32px}
+.catalog-grid,.catalog-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.catalog-group{border:1px solid #d4e3e8;border-radius:16px;overflow:hidden;background:white;display:flex;flex-direction:column}
+.catalog-group>img,.catalog-group>.category-symbol{width:100%;height:260px;object-fit:cover}.catalog-group>span:last-child{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px;font-size:20px}
+.catalog-gallery figure{margin:0;min-width:0;background:white;border:1px solid #d4e3e8;border-radius:12px;overflow:hidden}
+.catalog-gallery button{display:block;border:0;padding:0;width:100%;background:#e7eff2;cursor:zoom-in}.catalog-gallery img,.catalog-gallery video{display:block;width:100%;height:auto;aspect-ratio:1.39;object-fit:contain}.catalog-gallery figcaption{padding:18px 20px;font-size:16px;line-height:1.5}
+.catalog-back{display:inline-flex;min-height:44px;align-items:center;margin-top:32px;border-bottom:1px solid #80b2c2}
+.catalog-empty{padding:44px 28px;border:1px solid #d4e3e8;border-radius:12px;background:white;color:#526f80}
+.gallery-preview{display:block;width:100%;height:auto}.detail-dialog:has(.gallery-preview){max-width:960px}
+@media(min-width:901px) and (max-width:1250px){.header .nav{gap:10px}.header .nav a{min-width:100px;font-size:14px;padding:12px 16px;min-height:50px}.header-actions .header-contact{display:none}.header-actions{padding-left:18px}.hero .header{gap:18px}}
+@media(max-width:900px){.hero .header{height:96px;min-height:96px}.hero .mobile-nav{top:96px}}
+@media(max-width:640px){.hero .header{height:88px;min-height:88px;gap:10px}.hero .mobile-nav{top:88px}.header-actions{padding-left:0}.catalog-grid,.catalog-gallery{grid-template-columns:1fr;gap:20px}.catalog-group>img,.catalog-group>.category-symbol{height:220px}.project-catalog{padding:24px 0 40px}.catalog-group>span:last-child{font-size:18px;padding:20px}.catalog-breadcrumbs{font-size:12px}.catalog-gallery figcaption{font-size:14px}}
+.project-catalog h1:focus{outline:none}
