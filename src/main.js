@@ -3,7 +3,7 @@ const projects = [
   {id:'private',category:'private',title:'Частный бассейн',meta:'5 × 3 м · Подогрев',image:'/images/private-pool.jpg',alt:'Открытый бассейн с голубой водой и зоной отдыха',description:'Компактный и комфортный бассейн для частного дома с системой подогрева и современной отделкой.',details:'Место для спокойного отдыха рядом с домом. Продумываем расположение чаши, безопасные подходы и оборудование так, чтобы бассейном было удобно пользоваться каждый день.',features:['Система фильтрации и подогрева','Подводное освещение','Отделка чаши и обустройство зоны отдыха'],type:'Частный бассейн'},
   {id:'park',category:'park',title:'Аквапарк',meta:'Санаторий «Каспий»',image:'/images/waterpark.png',alt:'Вид сверху на аквапарк с горками и извилистыми бассейнами',description:'Комплекс водных развлечений: горки, детский городок, волновой бассейн 1280 м², ленивая река 400 метров.',details:'Водное пространство для семейного отдыха. Объединяем аттракционы, детские зоны и бассейны в единый комплекс с понятной навигацией и продуманной инфраструктурой.',features:['Водные горки и детские аттракционы','Волновой бассейн и ленивая река','Водоподготовка для коммерческих объектов'],type:'Аквапарк'},
   {id:'spa',category:'spa',title:'Бассейн в СПА',meta:'25 × 11 м · Дербент',image:'/images/spa-pool.png',alt:'Современный крытый бассейн с панорамными окнами',description:'Современный бассейн в СПА-центре с системой подогрева и премиальной отделкой.',details:'Тихая вода, комфортная температура и архитектура, которая помогает замедлиться. Проектируем бассейн как часть целостного пространства для восстановления и отдыха.',features:['Подогрев и автоматическая водоподготовка','Архитектурная и подводная подсветка','Интеграция с пространством СПА'],type:'Бассейн в СПА'},
-  {id:'wave',category:'wave',title:'Искусственная волна',meta:'Решение для аквапарков и курортов',image:'/images/waterpark.png',alt:'Водный комплекс с бассейнами и аттракционами',description:'Системы создания волн для активного отдыха. Подбираем оборудование под размеры и задачи вашего комплекса.',details:'Создаём пространство для ярких впечатлений на воде. Тип волны, геометрия бассейна и режимы работы подбираются на этапе проектирования с учётом аудитории и нагрузки на комплекс.',features:['Подбор системы генерации волн','Расчёт чаши и инженерных систем','Пусконаладка и дальнейшее обслуживание'],type:'Искусственная волна'}
+  {id:'wave',category:'wave',title:'Искусственная волна',meta:'Решение для аквапарков и курортов',image:'/images/waterpark.png',alt:'Водный комплекс с бассейнами и аттракционами',description:'Системы создания волн для активного отдыха. Подбираем оборудование под размеры и задачи вашего комплекса.',details:'Создаём пространство для ярких впечатлений на воде. Тип волны, геометрия бассейна и режимы работы подбираются на этапе проектирования с учётом аудитории и нагрузки на комплекс.',features:['Подбор системы генерации волн','Расчёт чаши и инженерных систем','Пусконаладка и дальнейшее обслуживание'],type:'Общественный бассейн'}
 ];
 const grid = document.querySelector('#project-grid');
 function renderProjects(filter='all') {
@@ -24,7 +24,7 @@ const detailContent=document.querySelector('#detail-content');
 function openQuote(type){
   if(detailDialog.open)detailDialog.close();
   form.hidden=false;result.hidden=true;
-  if(type)form.elements.type.value=type;
+  if(type)form.elements.type.value=[...form.elements.type.options].some(option=>option.value===type)?type:'Общественный бассейн';
   quoteDialog.showModal();
 }
 document.querySelectorAll('[data-quote]').forEach(b=>b.addEventListener('click',()=>openQuote()));
@@ -49,8 +49,8 @@ form.addEventListener('submit',event=>{
   const location=String(data.get('location')).trim();
   if(!location){form.elements.location.setCustomValidity('Укажите город или населённый пункт');form.elements.location.reportValidity();return;}
   const dimensions=data.get('length')&&data.get('width')?`${data.get('length')} × ${data.get('width')} м`:'Уточнить при консультации';
-  brief=`АКВАСПЕКТР — описание проекта\n\nТип: ${data.get('type')}\nРазмеры: ${dimensions}\nМестоположение: ${location}\nПожелания: ${String(data.get('notes')).trim()||'Обсудить со специалистом'}\n\nТелефон для консультации: +7 (928) 987 97 07\nСтоимость рассчитывается после уточнения проекта.`;
-  result.innerHTML=`<span class="result-icon">${icon('check')}</span><h3>Ваш проект готов к обсуждению</h3><p>Сохраните описание и позвоните нам для консультации. Заявка автоматически не отправляется.</p><div class="brief-summary"></div><div class="result-actions"><button class="button button-blue" id="download-brief">Скачать описание ${icon('arrow')}</button><a class="button" href="tel:+79289879707">${icon('phone')} Позвонить</a></div><button class="text-button" id="edit-brief">Изменить описание</button>`;
+  brief=`АКВАСПЕКТР — описание проекта\n\nТип: ${data.get('type')}\nРазмеры: ${dimensions}\nМестоположение: ${location}\nПожелания: ${String(data.get('notes')).trim()||'Обсудить со специалистом'}\n\nТелефоны для консультации: +7 (928) 987 97 07, +7 (988) 637 97 77\nСтоимость рассчитывается после уточнения проекта.`;
+  result.innerHTML=`<span class="result-icon">${icon('check')}</span><h3>Ваш проект готов к обсуждению</h3><p>Сохраните описание и позвоните нам для консультации. Заявка автоматически не отправляется.</p><div class="brief-summary"></div><div class="result-actions"><button class="button button-blue" id="download-brief">Скачать описание ${icon('arrow')}</button><button class="button" type="button" data-phones>${icon('phone')} Позвонить</button></div><button class="text-button" id="edit-brief">Изменить описание</button>`;
   result.querySelector('.brief-summary').textContent=`${data.get('type')}\n${dimensions}\n${location}`;
   form.hidden=true;result.hidden=false;
   document.querySelector('#download-brief').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob(['\uFEFF'+brief],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Акваспектр — мой проект.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
@@ -68,4 +68,33 @@ document.querySelector('#year').textContent=new Date().getFullYear();
 // The overview link also clears any active category filter.
 document.querySelector('.all-projects-link')?.addEventListener('click',()=>{
   document.querySelector('[data-filter="all"]').click();
+});
+
+const phoneDialog = document.querySelector('#phone-dialog');
+const copyStatus = document.querySelector('#phone-copy-status');
+document.addEventListener('click', async (event) => {
+  if (event.target.closest('[data-phones]')) {
+    closeMenu();
+    copyStatus.textContent = '';
+    if (!phoneDialog.open) phoneDialog.showModal();
+  }
+  const copyButton = event.target.closest('[data-copy-phone]');
+  if (!copyButton) return;
+  const number = copyButton.dataset.copyPhone;
+  try {
+    await navigator.clipboard.writeText(number);
+    copyStatus.textContent = `Номер ${number} скопирован`;
+  } catch {
+    // Keep copying available when browser clipboard permissions are denied.
+    const field = document.createElement('textarea');
+    field.value = number;
+    field.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    phoneDialog.append(field);
+    field.select();
+    let copied = false;
+    try { copied = document.execCommand('copy'); } catch {}
+    field.remove();
+    copyButton.focus();
+    copyStatus.textContent = copied ? `Номер ${number} скопирован` : 'Выделите номер выше и скопируйте вручную.';
+  }
 });
