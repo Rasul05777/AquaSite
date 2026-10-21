@@ -1,8 +1,8 @@
-import { projectMedia } from './project-media.js?v=f86b5cdf2e45';
+import { projectMedia } from './project-media.js?v=cc51a16a61c4';
 const icon = (name) => `<svg aria-hidden="true"><use href="#${name}"/></svg>`;
 const categories = [
   {id:'park', title:'Аквапарки', image:'/images/waterpark.png', media:projectMedia.park},
-  {id:'public', title:'Общественные бассейны', image:'/images/spa-pool.png', media:[{src:'/images/spa-pool.png',title:'Крытый бассейн'}]},
+  {id:'public', title:'Общественные бассейны', image:'/images/projects/public-01.jpg', media:projectMedia.public},
   {id:'private', title:'Частные бассейны', image:'/images/private-pool.jpg', groups:[{id:'composite',title:'Композитные бассейны',cover:'/images/composite-cover.png',media:[
     {src:'/images/composite-1.png',title:'Прямоугольная чаша с широкими ступенями'},
     {src:'/images/composite-2.png',title:'Чаша с полукруглой лестницей'},
@@ -10,6 +10,7 @@ const categories = [
     {src:'/images/composite-4.png',title:'Овальная чаша с зоной отдыха'},
     {src:'/images/composite-models.png',title:'Схема моделей и размеров композитных бассейнов',layout:'wide'}
   ]},{id:'concrete',title:'Бетонные бассейны',media:projectMedia.concrete}]},
+  {id:'fountains',title:'Городские фонтаны',image:'/images/projects/fountains-04-poster.jpg',media:projectMedia.fountains},
   {id:'plunge',title:'Купели',symbol:'drop',media:[]},
   {id:'sauna',title:'Модульные Бани',symbol:'house',media:[]}
 ];
@@ -18,7 +19,7 @@ const cover = (image, title, symbol='drop') => image
   : `<span class="category-symbol" aria-hidden="true">${icon(symbol)}</span>`;
 const grid = document.querySelector('#project-grid');
 grid.innerHTML=categories.map(c=>`<article class="project-card"><a class="project-image" href="#projects/${c.id}" aria-label="Смотреть примеры: ${c.title}">${cover(c.image,c.title,c.symbol)}</a><div class="project-content"><h3><a href="#projects/${c.id}">${c.title}</a></h3><a class="project-link" href="#projects/${c.id}">Смотреть примеры ${icon('arrow')}</a></div></article>`).join('');
-document.querySelector('#filter-status').textContent='Пять направлений проектов';
+document.querySelector('#filter-status').textContent=`Направлений проектов: ${categories.length}`;
 const detailDialog=document.querySelector('#detail-dialog');
 const quoteDialog=document.querySelector('#quote-dialog');
 const form=document.querySelector('#quote-form');

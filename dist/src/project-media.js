@@ -144,5 +144,107 @@ export const projectMedia = {
       "type": "video",
       "title": "Видео 10"
     }
+  ],
+  "public": [
+    {
+      "src": "/images/projects/public-01.jpg",
+      "title": "Фото 01"
+    },
+    {
+      "src": "/images/projects/public-02.jpg",
+      "title": "Фото 02"
+    },
+    {
+      "src": "/images/projects/public-04.jpg",
+      "title": "Фото 04"
+    },
+    {
+      "src": "/images/projects/public-05.jpg",
+      "title": "Фото 05"
+    },
+    {
+      "src": "/images/projects/public-06.jpg",
+      "title": "Фото 06"
+    },
+    {
+      "src": "/images/projects/public-07.jpg",
+      "title": "Фото 07"
+    },
+    {
+      "src": "/images/projects/public-08.jpg",
+      "title": "Фото 08"
+    },
+    {
+      "src": "/images/projects/public-09.jpg",
+      "title": "Фото 09"
+    },
+    {
+      "src": "/images/projects/public-10.jpg",
+      "title": "Фото 10"
+    },
+    {
+      "src": "/images/projects/public-11.jpg",
+      "title": "Фото 11"
+    },
+    {
+      "src": "/images/projects/public-12.jpg",
+      "title": "Фото 12"
+    },
+    {
+      "src": "/images/projects/public-13.jpg",
+      "title": "Фото 13"
+    },
+    {
+      "src": "/images/projects/public-14.jpg",
+      "title": "Фото 14"
+    },
+    {
+      "src": "/images/projects/public-15.jpg",
+      "title": "Фото 15"
+    },
+    {
+      "src": "/images/projects/public-17.jpg",
+      "title": "Фото 17"
+    },
+    {
+      "src": "/images/projects/public-18.jpg",
+      "title": "Фото 18"
+    },
+    {
+      "src": "/images/projects/public-19.jpg",
+      "title": "Фото 19"
+    }
+  ],
+  "fountains": [
+    {
+      "src": "/images/projects/fountains-01.mp4",
+      "poster": "/images/projects/fountains-01-poster.jpg",
+      "type": "video",
+      "title": "Видео 01"
+    },
+    {
+      "src": "/images/projects/fountains-02.mp4",
+      "poster": "/images/projects/fountains-02-poster.jpg",
+      "type": "video",
+      "title": "Видео 02"
+    },
+    {
+      "src": "/images/projects/fountains-03.mp4",
+      "poster": "/images/projects/fountains-03-poster.jpg",
+      "type": "video",
+      "title": "Видео 03"
+    },
+    {
+      "src": "/images/projects/fountains-04.mp4",
+      "poster": "/images/projects/fountains-04-poster.jpg",
+      "type": "video",
+      "title": "Видео 04"
+    },
+    {
+      "src": "/images/projects/fountains-05.mp4",
+      "poster": "/images/projects/fountains-05-poster.jpg",
+      "type": "video",
+      "title": "Видео 05"
+    }
   ]
 };
