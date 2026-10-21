@@ -3,19 +3,19 @@ const projects = [
   {id:'private',category:'private',title:'Частный бассейн',meta:'5 × 3 м · Подогрев',image:'/images/private-pool.jpg',alt:'Открытый бассейн с голубой водой и зоной отдыха',description:'Компактный и комфортный бассейн для частного дома с системой подогрева и современной отделкой.',details:'Место для спокойного отдыха рядом с домом. Продумываем расположение чаши, безопасные подходы и оборудование так, чтобы бассейном было удобно пользоваться каждый день.',features:['Система фильтрации и подогрева','Подводное освещение','Отделка чаши и обустройство зоны отдыха'],type:'Частный бассейн'},
   {id:'park',category:'park',title:'Аквапарк',meta:'Санаторий «Каспий»',image:'/images/waterpark.png',alt:'Вид сверху на аквапарк с горками и извилистыми бассейнами',description:'Комплекс водных развлечений: горки, детский городок, волновой бассейн 1280 м², ленивая река 400 метров.',details:'Водное пространство для семейного отдыха. Объединяем аттракционы, детские зоны и бассейны в единый комплекс с понятной навигацией и продуманной инфраструктурой.',features:['Водные горки и детские аттракционы','Волновой бассейн и ленивая река','Водоподготовка для коммерческих объектов'],type:'Аквапарк'},
   {id:'spa',category:'spa',title:'Бассейн в СПА',meta:'25 × 11 м · Дербент',image:'/images/spa-pool.png',alt:'Современный крытый бассейн с панорамными окнами',description:'Современный бассейн в СПА-центре с системой подогрева и премиальной отделкой.',details:'Тихая вода, комфортная температура и архитектура, которая помогает замедлиться. Проектируем бассейн как часть целостного пространства для восстановления и отдыха.',features:['Подогрев и автоматическая водоподготовка','Архитектурная и подводная подсветка','Интеграция с пространством СПА'],type:'Бассейн в СПА'},
-  {id:'wave',category:'wave',title:'Искусственная волна',meta:'Решение для аквапарков и курортов',image:'/images/waterpark.png',alt:'Водный комплекс с бассейнами и аттракционами',description:'Системы создания волн для активного отдыха. Подбираем оборудование под размеры и задачи вашего комплекса.',details:'Создаём пространство для ярких впечатлений на воде. Тип волны, геометрия бассейна и режимы работы подбираются на этапе проектирования с учётом аудитории и нагрузки на комплекс.',features:['Подбор системы генерации волн','Расчёт чаши и инженерных систем','Пусконаладка и дальнейшее обслуживание'],type:'Общественный бассейн'}
+
+];
+const categories = [
+  {id:'park', title:'Аквапарки', description:'Водные горки, семейные зоны отдыха и комплексы водных развлечений.', example:projects.find(p=>p.id==='park')},
+  {id:'public', title:'Общественные бассейны', description:'Бассейны для отелей, санаториев, СПА и спортивных комплексов.', example:projects.find(p=>p.id==='spa')},
+  {id:'private', title:'Частные бассейны', description:'Индивидуальные решения для отдыха и плавания рядом с вашим домом.', example:projects.find(p=>p.id==='private')}
 ];
 const grid = document.querySelector('#project-grid');
-function renderProjects(filter='all') {
-  const visible = filter === 'all' ? projects : projects.filter(p=>p.category===filter);
-  grid.innerHTML=visible.map((p,i)=>`<article class="project-card ${p.id==='wave'&&filter==='all'?'wave-card':''}" style="animation-delay:${i*50}ms"><button class="project-image" data-project="${p.id}" aria-label="Подробнее: ${p.title}"><img src="${p.image}" alt="${p.alt}" loading="lazy" width="700" height="470"><span class="project-index">0${projects.indexOf(p)+1} / АКВАСПЕКТР</span></button><div class="project-content"><h3>${p.title}</h3><p class="project-meta">${p.meta}</p><p class="project-description">${p.description}</p><button class="project-link" data-project="${p.id}" aria-label="Подробнее: ${p.title}">Подробнее ${icon('arrow')}</button></div></article>`).join('');
-  document.querySelector('#filter-status').textContent=`Показано проектов: ${visible.length}`;
+function renderProjects() {
+  grid.innerHTML=categories.map(c=>`<article class="project-card"><button class="project-image" data-project="${c.id}" aria-label="Смотреть примеры: ${c.title}"><img src="${c.example.image}" alt="${c.example.alt}" loading="lazy" width="700" height="470"></button><div class="project-content"><h3>${c.title}</h3><p class="project-description">${c.description}</p><button class="project-link" data-project="${c.id}">Смотреть примеры ${icon('arrow')}</button></div></article>`).join('');
+  document.querySelector('#filter-status').textContent='Три направления проектов';
 }
 renderProjects();
-document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
-  document.querySelectorAll('[data-filter]').forEach(b=>{const selected=b===button;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});
-  renderProjects(button.dataset.filter);
-}));
 const detailDialog=document.querySelector('#detail-dialog');
 const quoteDialog=document.querySelector('#quote-dialog');
 const form=document.querySelector('#quote-form');
@@ -30,9 +30,9 @@ function openQuote(type){
 document.querySelectorAll('[data-quote]').forEach(b=>b.addEventListener('click',()=>openQuote()));
 grid.addEventListener('click',event=>{
   const trigger=event.target.closest('[data-project]');if(!trigger)return;
-  const p=projects.find(p=>p.id===trigger.dataset.project);
-  detailContent.innerHTML=`<img class="detail-photo" src="${p.image}" alt="${p.alt}"><div class="detail-body"><p class="eyebrow">${p.meta}</p><h2 id="detail-title">${p.title}</h2><p>${p.details}</p><ul class="detail-features">${p.features.map(f=>`<li>${icon('check')}${f}</li>`).join('')}</ul><button class="button button-blue" id="similar-project">Обсудить похожий проект ${icon('arrow')}</button><p class="form-note" style="margin:16px 0 0">Изображение иллюстрирует решение и не является фотографией выполненного объекта.</p></div>`;
-  document.querySelector('#similar-project').addEventListener('click',()=>openQuote(p.type));
+  const category=categories.find(c=>c.id===trigger.dataset.project);
+  const p=category.example;
+  detailContent.innerHTML=`<img class="detail-photo" src="${p.image}" alt="${p.alt}"><div class="detail-body"><p class="eyebrow">Пример решения</p><h2 id="detail-title">${category.title}</h2><h3 class="example-title">${p.title}</h3><p class="project-meta">${p.meta}</p><p>${p.details}</p><ul class="detail-features">${p.features.map(f=>`<li>${icon('check')}${f}</li>`).join('')}</ul><p class="form-note" style="margin:16px 0 0">Изображение иллюстрирует решение и не является фотографией выполненного объекта.</p></div>`;
   detailDialog.showModal();
 });
 document.querySelector('#company-details').addEventListener('click',()=>{
@@ -63,13 +63,8 @@ function closeMenu(){mobileNav.hidden=true;menuButton.setAttribute('aria-expande
 menuButton.addEventListener('click',()=>{const expanded=menuButton.getAttribute('aria-expanded')==='true';mobileNav.hidden=expanded;menuButton.setAttribute('aria-expanded',String(!expanded));menuButton.setAttribute('aria-label',expanded?'Открыть меню':'Закрыть меню');});
 mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
-window.matchMedia('(min-width:641px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
+window.matchMedia('(min-width:901px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
 document.querySelector('#year').textContent=new Date().getFullYear();
-// The overview link also clears any active category filter.
-document.querySelector('.all-projects-link')?.addEventListener('click',()=>{
-  document.querySelector('[data-filter="all"]').click();
-});
-
 const phoneDialog = document.querySelector('#phone-dialog');
 const copyStatus = document.querySelector('#phone-copy-status');
 document.addEventListener('click', async (event) => {

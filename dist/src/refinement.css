@@ -83,3 +83,34 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 .mobile-nav>button{padding:14px 0;min-height:44px;border:0;border-top:1px solid #ffffff20;background:transparent;color:inherit;text-align:left;font-size:14px}
 @media(max-width:640px){.hero h1{font-size:32px;line-height:1.15}.hero-content{gap:24px}.phone-row{flex-wrap:wrap;gap:12px}.phone-row>span{font-size:16px}.quote-contacts{font-size:13px}}
 @media(min-width:951px){.hero{grid-template-columns:35% 65%}}
+
+/* Flexible header and hero across laptop scaling settings. */
+.hero .header{height:96px;min-height:96px;gap:clamp(16px,2vw,32px);padding-inline:clamp(20px,3.2vw,56px)}
+.header .brand{flex:0 0 auto;min-width:0}.header .brand-image{width:142px;height:auto}
+.header .nav{margin-left:auto;gap:clamp(18px,2.2vw,36px);font-size:14px;white-space:nowrap}
+.header-actions{flex:0 0 auto;margin-left:0;padding-left:24px;gap:24px;align-items:center}
+.header-phones{display:flex;flex-direction:column;gap:2px}
+.header-actions .header-phones .phone{width:auto;height:auto;min-height:34px;padding:4px 0;border:0;border-radius:0;font-size:13px;gap:10px}
+.header-phones .phone span{display:inline}.header-phones .phone svg{width:18px;height:18px}
+.hero{grid-template-columns:minmax(0,36fr) minmax(0,64fr)}
+.hero-summary{min-width:0;padding:40px clamp(24px,3.2vw,56px)}
+.hero-heading,.hero-intro{min-width:0;max-width:100%}
+.hero h1{font-size:clamp(30px,2.55vw,44px);line-height:1.18;max-width:520px;overflow-wrap:normal}
+.hero-photo{min-width:0;min-height:0;max-height:none;height:100%;object-fit:cover;aspect-ratio:1.7}
+.hero-intro .button{max-width:100%;white-space:normal;text-align:left}
+.project-grid{margin-top:28px}.project-card{min-width:0}.project-content h3{font-size:clamp(18px,1.65vw,24px);line-height:1.3}.example-title{margin:20px 0 8px;font-size:20px}
+@media(min-width:901px) and (max-width:1150px){.header-actions .header-contact{display:none}.hero{grid-template-columns:minmax(0,42fr) minmax(0,58fr)}.hero h1{font-size:30px}.hero-summary{padding:36px 28px}.hero-content{gap:24px}}
+@media(max-width:900px){
+ .header .nav,.header-actions .header-contact{display:none}.header-actions{margin-left:auto;padding:0;border:0;gap:0}
+ .menu-toggle{display:flex;width:40px;height:44px;flex-direction:column;gap:7px;justify-content:center;align-items:center;background:transparent;border:0;padding:0;color:white}
+ .menu-toggle span{width:24px;height:1px;background:currentColor}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+ .hero{display:flex;flex-direction:column}.hero-summary{padding:36px 32px}.hero-content{max-width:680px}.hero h1{max-width:680px;font-size:clamp(30px,4.4vw,38px)}
+ .hero-photo{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:16px 16px 0 0}
+ .hero .mobile-nav{position:absolute;top:96px;left:0;right:0;z-index:10;background:#052b3e;padding:16px 32px;box-shadow:0 14px 20px #001d3330;color:white}
+ .mobile-nav:not([hidden]){display:flex;flex-direction:column}.mobile-nav[hidden]{display:none}
+ .service-strip svg{flex-shrink:0}.service-strip a{gap:12px}
+}
+@media(max-width:640px){
+ .hero .header{height:88px;min-height:88px;gap:10px;padding-inline:16px}.header .brand-image{width:100px}.header-actions .header-phones .phone{font-size:11px;min-height:32px;gap:0}.header-phones .phone svg{display:none}.menu-toggle{width:32px;flex-shrink:0}.hero .mobile-nav{top:88px}
+ .hero-summary{padding:30px 20px}.hero h1{font-size:30px}.project-grid{grid-template-columns:1fr}.project-content h3{font-size:22px}
+}
