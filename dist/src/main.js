@@ -1,4 +1,4 @@
-import { projectMedia } from './project-media.js?v=cc51a16a61c4';
+import { projectMedia } from './project-media.js?v=bac6a37ac27c';
 const icon = (name) => `<svg aria-hidden="true"><use href="#${name}"/></svg>`;
 const categories = [
   {id:'park', title:'Аквапарки', image:'/images/waterpark.png', media:projectMedia.park},
@@ -11,8 +11,8 @@ const categories = [
     {src:'/images/composite-models.png',title:'Схема моделей и размеров композитных бассейнов',layout:'wide'}
   ]},{id:'concrete',title:'Бетонные бассейны',media:projectMedia.concrete}]},
   {id:'fountains',title:'Городские фонтаны',image:'/images/projects/fountains-04-poster.jpg',media:projectMedia.fountains},
-  {id:'plunge',title:'Купели',symbol:'drop',media:[]},
-  {id:'sauna',title:'Модульные Бани',symbol:'house',media:[]}
+  {id:'plunge',title:'Купели',image:'/images/projects/plunge-01.jpg',media:projectMedia.plunge},
+  {id:'sauna',title:'Модульные Бани',image:'/images/projects/sauna-03.jpg',media:projectMedia.sauna}
 ];
 const cover = (image, title, symbol='drop') => image
   ? `<img src="${image}" alt="${title}" loading="lazy" width="700" height="470">`

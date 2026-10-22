@@ -246,5 +246,101 @@ export const projectMedia = {
       "type": "video",
       "title": "Видео 05"
     }
+  ],
+  "plunge": [
+    {
+      "src": "/images/projects/plunge-01.jpg",
+      "title": "Купель — пример 1"
+    },
+    {
+      "src": "/images/projects/plunge-02.jpg",
+      "title": "Купель — пример 2"
+    },
+    {
+      "src": "/images/projects/plunge-03.jpg",
+      "title": "Купель — пример 3"
+    },
+    {
+      "src": "/images/projects/plunge-04.jpg",
+      "title": "Купель — пример 4"
+    },
+    {
+      "src": "/images/projects/plunge-05.jpg",
+      "title": "Купель — пример 5"
+    },
+    {
+      "src": "/images/projects/plunge-06.jpg",
+      "title": "Купель — пример 6"
+    },
+    {
+      "src": "/images/projects/plunge-07.jpg",
+      "title": "Купель — пример 7"
+    },
+    {
+      "src": "/images/projects/plunge-08.jpg",
+      "title": "Купель — пример 8"
+    },
+    {
+      "src": "/images/projects/plunge-09.jpg",
+      "title": "Купель — пример 9"
+    },
+    {
+      "src": "/images/projects/plunge-10.jpg",
+      "title": "Купель — пример 10"
+    },
+    {
+      "src": "/images/projects/plunge-11.jpg",
+      "title": "Купель — пример 11"
+    },
+    {
+      "src": "/images/projects/plunge-12.jpg",
+      "title": "Купель — пример 12"
+    }
+  ],
+  "sauna": [
+    {
+      "src": "/images/projects/sauna-01.jpg",
+      "title": "Модульная баня — пример 1"
+    },
+    {
+      "src": "/images/projects/sauna-02.jpg",
+      "title": "Модульная баня — пример 2"
+    },
+    {
+      "src": "/images/projects/sauna-03.jpg",
+      "title": "Модульная баня — пример 3"
+    },
+    {
+      "src": "/images/projects/sauna-04.jpg",
+      "title": "Модульная баня — пример 4"
+    },
+    {
+      "src": "/images/projects/sauna-05.jpg",
+      "title": "Модульная баня — пример 5"
+    },
+    {
+      "src": "/images/projects/sauna-06.jpg",
+      "title": "Модульная баня — пример 6"
+    },
+    {
+      "src": "/images/projects/sauna-07.jpg",
+      "title": "Модульная баня — пример 7"
+    },
+    {
+      "src": "/images/projects/sauna-08.jpg",
+      "title": "Модульная баня — пример 8"
+    },
+    {
+      "src": "/images/projects/sauna-09.jpg",
+      "title": "Модульная баня — пример 9"
+    },
+    {
+      "src": "/images/projects/sauna-10.jpg",
+      "title": "Модульная баня — пример 10"
+    },
+    {
+      "src": "/images/projects/sauna-11.jpg",
+      "title": "Модульная баня — пример 11"
+    }
   ]
 };
