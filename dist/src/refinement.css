@@ -170,9 +170,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 .catalog-gallery img,.catalog-gallery video{background:#edf3f6}
 @media(max-width:640px){.catalog-gallery{gap:20px}.catalog-gallery figure{padding:4px;border-radius:14px}.catalog-gallery figure>button,.catalog-gallery figure>video{border-radius:10px}}
 
-/* Stable, matching preview sizes for landscape and portrait source media. */
+/* Full photographs retain their source proportions; video previews stay 4:3. */
 .catalog-gallery figure{align-self:start}
-.catalog-gallery figure:not(.gallery-wide)>button{aspect-ratio:4/3}
-.catalog-gallery figure:not(.gallery-wide)>button>img{height:100%;aspect-ratio:auto}
+.catalog-gallery figure>button{aspect-ratio:auto}
+.catalog-gallery figure>button>img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
 .catalog-gallery video:fullscreen{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#000}
 .catalog-gallery video:-webkit-full-screen{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#000}
