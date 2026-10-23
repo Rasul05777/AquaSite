@@ -176,3 +176,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 .catalog-gallery figure>button>img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
 .catalog-gallery video:fullscreen{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#000}
 .catalog-gallery video:-webkit-full-screen{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#000}
+
+/* Uniform waterpark gallery, with complete originals available on click. */
+.catalog-gallery.park-gallery figure>button{aspect-ratio:4/3}
+.catalog-gallery.park-gallery figure>button>img{height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}

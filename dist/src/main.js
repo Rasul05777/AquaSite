@@ -1,4 +1,4 @@
-import { projectMedia } from './project-media.js?v=bac6a37ac27c';
+import { projectMedia } from './project-media.js?v=4b55ce1d2545';
 const icon = (name) => `<svg aria-hidden="true"><use href="#${name}"/></svg>`;
 const categories = [
   {id:'park', title:'Аквапарки', image:'/images/waterpark.png', media:projectMedia.park},
@@ -115,7 +115,7 @@ function renderCatalog(){
 }
 function renderGallery(group){
   if(!group.media.length)return '<div class="catalog-empty">Примеры скоро появятся.</div>';
-  return `<div class="catalog-gallery">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}</figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
+  return `<div class="catalog-gallery ${group.id==='park'?'park-gallery':''}">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}</figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
 }
 catalog.addEventListener('click',event=>{
   const button=event.target.closest('[data-preview]');if(!button)return;

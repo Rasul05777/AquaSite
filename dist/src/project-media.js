@@ -45,10 +45,6 @@ export const projectMedia = {
       "title": "Видео 09"
     },
     {
-      "src": "/images/projects/park-10.jpg",
-      "title": "Фото 10"
-    },
-    {
       "src": "/images/projects/park-11.jpg",
       "title": "Фото 11"
     },
@@ -79,18 +75,6 @@ export const projectMedia = {
     {
       "src": "/images/projects/park-17.jpg",
       "title": "Фото 17"
-    },
-    {
-      "src": "/images/projects/park-18.jpg",
-      "title": "Фото 18"
-    },
-    {
-      "src": "/images/projects/park-19.jpg",
-      "title": "Фото 19"
-    },
-    {
-      "src": "/images/projects/park-20.jpg",
-      "title": "Фото 20"
     }
   ],
   "concrete": [
