@@ -180,3 +180,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #46add1;outline-offset:4p
 /* Uniform waterpark gallery, with complete originals available on click. */
 .catalog-gallery.park-gallery figure>button{aspect-ratio:4/3}
 .catalog-gallery.park-gallery figure>button>img{height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}
+
+/* Variable-height photos pack tightly without cropping diagrams or photographs. */
+.catalog-gallery.masonry-gallery{display:block;position:relative;column-gap:28px}
+.masonry-gallery>figure{position:absolute;width:calc((100% - 28px)/2);margin:0}
+.masonry-gallery>figure.gallery-wide{width:100%}
+@media(max-width:640px){.catalog-gallery.masonry-gallery{column-gap:20px}.masonry-gallery>figure{width:100%}}

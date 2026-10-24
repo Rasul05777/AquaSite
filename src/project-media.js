@@ -2,19 +2,27 @@ export const projectMedia = {
   "park": [
     {
       "src": "/images/projects/park-01.jpg",
-      "title": "Фото 01"
+      "title": "Фото 01",
+      "width": 948,
+      "height": 584
     },
     {
       "src": "/images/projects/park-02.jpg",
-      "title": "Фото 02"
+      "title": "Фото 02",
+      "width": 933,
+      "height": 596
     },
     {
       "src": "/images/projects/park-03.jpg",
-      "title": "Фото 03"
+      "title": "Фото 03",
+      "width": 1006,
+      "height": 657
     },
     {
       "src": "/images/projects/park-04.jpg",
-      "title": "Фото 04"
+      "title": "Фото 04",
+      "width": 964,
+      "height": 652
     },
     {
       "src": "/images/projects/park-05.mp4",
@@ -30,7 +38,9 @@ export const projectMedia = {
     },
     {
       "src": "/images/projects/park-07.jpg",
-      "title": "Фото 07"
+      "title": "Фото 07",
+      "width": 1800,
+      "height": 1013
     },
     {
       "src": "/images/projects/park-08.mp4",
@@ -46,11 +56,15 @@ export const projectMedia = {
     },
     {
       "src": "/images/projects/park-11.jpg",
-      "title": "Фото 11"
+      "title": "Фото 11",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/park-12.jpg",
-      "title": "Фото 12"
+      "title": "Фото 12",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/park-13.mp4",
@@ -60,7 +74,9 @@ export const projectMedia = {
     },
     {
       "src": "/images/projects/park-14.jpg",
-      "title": "Фото 14"
+      "title": "Фото 14",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/park-15.mp4",
@@ -70,29 +86,41 @@ export const projectMedia = {
     },
     {
       "src": "/images/projects/park-16.jpg",
-      "title": "Фото 16"
+      "title": "Фото 16",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/park-17.jpg",
-      "title": "Фото 17"
+      "title": "Фото 17",
+      "width": 1350,
+      "height": 1800
     }
   ],
   "concrete": [
     {
       "src": "/images/projects/concrete-01.jpg",
-      "title": "Фото 01"
+      "title": "Фото 01",
+      "width": 1012,
+      "height": 1800
     },
     {
       "src": "/images/projects/concrete-02.jpg",
-      "title": "Фото 02"
+      "title": "Фото 02",
+      "width": 1280,
+      "height": 960
     },
     {
       "src": "/images/projects/concrete-03.jpg",
-      "title": "Фото 03"
+      "title": "Фото 03",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/concrete-04.jpg",
-      "title": "Фото 04"
+      "title": "Фото 04",
+      "width": 1600,
+      "height": 1200
     },
     {
       "src": "/images/projects/concrete-05.mp4",
@@ -108,7 +136,9 @@ export const projectMedia = {
     },
     {
       "src": "/images/projects/concrete-07.jpg",
-      "title": "Фото 07"
+      "title": "Фото 07",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/concrete-08.mp4",
@@ -132,91 +162,89 @@ export const projectMedia = {
   "public": [
     {
       "src": "/images/projects/public-01.jpg",
-      "title": "Фото 01"
+      "title": "Фото 01",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/public-02.jpg",
-      "title": "Фото 02"
+      "title": "Фото 02",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/public-04.jpg",
-      "title": "Фото 04"
+      "title": "Фото 04",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/public-05.jpg",
-      "title": "Фото 05"
+      "title": "Фото 05",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/public-06.jpg",
-      "title": "Фото 06"
+      "title": "Фото 06",
+      "width": 450,
+      "height": 227
     },
     {
       "src": "/images/projects/public-07.jpg",
-      "title": "Фото 07"
+      "title": "Фото 07",
+      "width": 1800,
+      "height": 1350
     },
     {
       "src": "/images/projects/public-08.jpg",
-      "title": "Фото 08"
+      "title": "Фото 08",
+      "width": 576,
+      "height": 1024
     },
     {
       "src": "/images/projects/public-09.jpg",
-      "title": "Фото 09"
+      "title": "Фото 09",
+      "width": 1280,
+      "height": 960
     },
     {
       "src": "/images/projects/public-10.jpg",
-      "title": "Фото 10"
+      "title": "Фото 10",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/public-11.jpg",
-      "title": "Фото 11"
+      "title": "Фото 11",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/public-12.jpg",
-      "title": "Фото 12"
-    },
-    {
-      "src": "/images/projects/public-13.jpg",
-      "title": "Фото 13"
+      "title": "Фото 12",
+      "width": 1350,
+      "height": 1800
     },
     {
       "src": "/images/projects/public-14.jpg",
-      "title": "Фото 14"
-    },
-    {
-      "src": "/images/projects/public-15.jpg",
-      "title": "Фото 15"
-    },
-    {
-      "src": "/images/projects/public-17.jpg",
-      "title": "Фото 17"
-    },
-    {
-      "src": "/images/projects/public-18.jpg",
-      "title": "Фото 18"
+      "title": "Фото 14",
+      "width": 1800,
+      "height": 1013
     },
     {
       "src": "/images/projects/public-19.jpg",
-      "title": "Фото 19"
+      "title": "Фото 19",
+      "width": 817,
+      "height": 640
     }
   ],
   "fountains": [
-    {
-      "src": "/images/projects/fountains-01.mp4",
-      "poster": "/images/projects/fountains-01-poster.jpg",
-      "type": "video",
-      "title": "Видео 01"
-    },
     {
       "src": "/images/projects/fountains-02.mp4",
       "poster": "/images/projects/fountains-02-poster.jpg",
       "type": "video",
       "title": "Видео 02"
-    },
-    {
-      "src": "/images/projects/fountains-03.mp4",
-      "poster": "/images/projects/fountains-03-poster.jpg",
-      "type": "video",
-      "title": "Видео 03"
     },
     {
       "src": "/images/projects/fountains-04.mp4",
@@ -229,102 +257,154 @@ export const projectMedia = {
       "poster": "/images/projects/fountains-05-poster.jpg",
       "type": "video",
       "title": "Видео 05"
+    },
+    {
+      "src": "/images/projects/fountains-01.mp4",
+      "poster": "/images/projects/fountains-01-poster.jpg",
+      "type": "video",
+      "title": "Видео 01"
     }
   ],
   "plunge": [
     {
       "src": "/images/projects/plunge-01.jpg",
-      "title": "Купель — пример 1"
+      "title": "Купель — пример 1",
+      "width": 800,
+      "height": 529
     },
     {
       "src": "/images/projects/plunge-02.jpg",
-      "title": "Купель — пример 2"
+      "title": "Купель — пример 2",
+      "width": 697,
+      "height": 567
     },
     {
       "src": "/images/projects/plunge-03.jpg",
-      "title": "Купель — пример 3"
+      "title": "Купель — пример 3",
+      "width": 699,
+      "height": 585
     },
     {
       "src": "/images/projects/plunge-04.jpg",
-      "title": "Купель — пример 4"
+      "title": "Купель — пример 4",
+      "width": 698,
+      "height": 578
     },
     {
       "src": "/images/projects/plunge-05.jpg",
-      "title": "Купель — пример 5"
+      "title": "Купель — пример 5",
+      "width": 698,
+      "height": 567
     },
     {
       "src": "/images/projects/plunge-06.jpg",
-      "title": "Купель — пример 6"
+      "title": "Купель — пример 6",
+      "width": 699,
+      "height": 579
     },
     {
       "src": "/images/projects/plunge-07.jpg",
-      "title": "Купель — пример 7"
+      "title": "Купель — пример 7",
+      "width": 699,
+      "height": 579
     },
     {
       "src": "/images/projects/plunge-08.jpg",
-      "title": "Купель — пример 8"
+      "title": "Купель — пример 8",
+      "width": 697,
+      "height": 575
     },
     {
       "src": "/images/projects/plunge-09.jpg",
-      "title": "Купель — пример 9"
+      "title": "Купель — пример 9",
+      "width": 695,
+      "height": 552
     },
     {
       "src": "/images/projects/plunge-10.jpg",
-      "title": "Купель — пример 10"
+      "title": "Купель — пример 10",
+      "width": 681,
+      "height": 583
     },
     {
       "src": "/images/projects/plunge-11.jpg",
-      "title": "Купель — пример 11"
+      "title": "Купель — пример 11",
+      "width": 688,
+      "height": 585
     },
     {
       "src": "/images/projects/plunge-12.jpg",
-      "title": "Купель — пример 12"
+      "title": "Купель — пример 12",
+      "width": 696,
+      "height": 579
+    },
+    {
+      "src": "/images/projects/sauna-01.jpg",
+      "title": "Купели — пример оформления 1",
+      "width": 607,
+      "height": 309
+    },
+    {
+      "src": "/images/projects/sauna-06.jpg",
+      "title": "Купели — пример оформления 2",
+      "width": 612,
+      "height": 300
     }
   ],
   "sauna": [
     {
-      "src": "/images/projects/sauna-01.jpg",
-      "title": "Модульная баня — пример 1"
-    },
-    {
       "src": "/images/projects/sauna-02.jpg",
-      "title": "Модульная баня — пример 2"
+      "title": "Модульная баня — пример 2",
+      "width": 765,
+      "height": 343
     },
     {
       "src": "/images/projects/sauna-03.jpg",
-      "title": "Модульная баня — пример 3"
+      "title": "Модульная баня — пример 3",
+      "width": 802,
+      "height": 281
     },
     {
       "src": "/images/projects/sauna-04.jpg",
-      "title": "Модульная баня — пример 4"
+      "title": "Модульная баня — пример 4",
+      "width": 806,
+      "height": 230
     },
     {
       "src": "/images/projects/sauna-05.jpg",
-      "title": "Модульная баня — пример 5"
-    },
-    {
-      "src": "/images/projects/sauna-06.jpg",
-      "title": "Модульная баня — пример 6"
+      "title": "Модульная баня — пример 5",
+      "width": 535,
+      "height": 348
     },
     {
       "src": "/images/projects/sauna-07.jpg",
-      "title": "Модульная баня — пример 7"
+      "title": "Модульная баня — пример 7",
+      "width": 507,
+      "height": 289
     },
     {
       "src": "/images/projects/sauna-08.jpg",
-      "title": "Модульная баня — пример 8"
+      "title": "Модульная баня — пример 8",
+      "width": 498,
+      "height": 274
     },
     {
       "src": "/images/projects/sauna-09.jpg",
-      "title": "Модульная баня — пример 9"
+      "title": "Модульная баня — пример 9",
+      "width": 502,
+      "height": 302
     },
     {
       "src": "/images/projects/sauna-10.jpg",
-      "title": "Модульная баня — пример 10"
+      "title": "Модульная баня — пример 10",
+      "width": 500,
+      "height": 339
     },
     {
       "src": "/images/projects/sauna-11.jpg",
-      "title": "Модульная баня — пример 11"
+      "title": "Модульная баня — пример 11",
+      "width": 501,
+      "height": 514
     }
   ]
 };

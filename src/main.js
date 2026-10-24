@@ -95,7 +95,9 @@ document.addEventListener('click', async (event) => {
 // Hash routes work on static hosting and preserve browser Back/Forward navigation.
 // Media entries accept {type:'video', src, poster, title} when videos are available.
 const catalog=document.querySelector('#project-catalog');
+let stopGalleryLayout=()=>{};
 function renderCatalog(){
+  stopGalleryLayout();
   const parts=location.hash.slice(1).split('/');
   const category=parts[0]==='projects' && categories.find(c=>c.id===parts[1]);
   const wasCatalog=document.body.classList.contains('catalog-mode');
@@ -110,12 +112,42 @@ function renderCatalog(){
   const title=group?.title || category.title;
   document.title=`${title} — Акваспектр`;
   catalog.innerHTML=`<div class="container"><nav class="catalog-breadcrumbs" aria-label="Путь по проектам"><a href="#projects">Все проекты</a><span>/</span>${group?`<a href="#projects/${category.id}">${category.title}</a><span>/</span>`:''}<span aria-current="page">${title}</span></nav><h1 tabindex="-1">${title}</h1>${!category.groups ? renderGallery(category) : group ? renderGallery(group) : `<div class="catalog-grid">${category.groups.map(g=>`<a class="catalog-group" href="#projects/${category.id}/${g.id}">${cover(g.cover || g.media[0]?.src,g.title,category.symbol)}<span><strong>${g.title}</strong>${icon('arrow')}</span></a>`).join('')}</div>`}<a class="catalog-back" href="${group?'#projects/'+category.id:'#projects'}">← ${group?'Все группы':'Все направления'}</a></div>`;
+  stopGalleryLayout=layoutGallery(catalog.querySelector('.catalog-gallery'));
   catalog.querySelector('h1').focus({preventScroll:true});
   window.scrollTo({top:0,behavior:'instant'});
 }
 function renderGallery(group){
   if(!group.media.length)return '<div class="catalog-empty">Примеры скоро появятся.</div>';
-  return `<div class="catalog-gallery ${group.id==='park'?'park-gallery':''}">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" loading="lazy"></button>`}</figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
+  return `<div class="catalog-gallery ${group.id==='park'?'park-gallery':''}">${group.media.map((m,i)=>`<figure class="${m.layout==='wide'?'gallery-wide':''}">${m.type==='video'?`<video controls playsinline preload="none" ${m.poster?`poster="${m.poster}"`:''} aria-label="${m.title}"><source src="${m.src}"></video>`:`<button type="button" data-preview="${i}" aria-label="Увеличить: ${m.title}"><img src="${m.src}" alt="${m.title}" width="${m.width||700}" height="${m.height||500}" loading="lazy"></button>`}</figure>`).join('')}</div><p class="portfolio-note">Примеры решений. Изображения представлены для выбора формы и оформления.</p>`;
+}
+// Pack cards into the shortest column while keeping their DOM and keyboard order.
+function layoutGallery(gallery){
+  if(!gallery || gallery.classList.contains('park-gallery'))return ()=>{};
+  const cards=[...gallery.children];
+  gallery.classList.add('masonry-gallery');
+  let frame=0;
+  const layout=()=>{
+    frame=0;
+    const gap=parseFloat(getComputedStyle(gallery).columnGap)||20;
+    const columns=window.matchMedia('(max-width:640px)').matches?1:2;
+    const heights=Array(columns).fill(0);
+    const columnWidth=(gallery.clientWidth-gap*(columns-1))/columns;
+    for(const card of cards){
+      const wide=card.classList.contains('gallery-wide');
+      const column=wide?0:heights.indexOf(Math.min(...heights));
+      const top=wide?Math.max(...heights):heights[column];
+      card.style.left=`${column*(columnWidth+gap)}px`;
+      card.style.top=`${top}px`;
+      const bottom=top+card.getBoundingClientRect().height+gap;
+      if(wide)heights.fill(bottom);else heights[column]=bottom;
+    }
+    gallery.style.height=`${Math.max(0,...heights)-gap}px`;
+  };
+  const schedule=()=>{if(!frame)frame=requestAnimationFrame(layout);};
+  const observer=new ResizeObserver(schedule);
+  observer.observe(gallery);cards.forEach(card=>observer.observe(card));
+  layout();
+  return ()=>{observer.disconnect();cancelAnimationFrame(frame);};
 }
 catalog.addEventListener('click',event=>{
   const button=event.target.closest('[data-preview]');if(!button)return;
