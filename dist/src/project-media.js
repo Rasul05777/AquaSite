@@ -349,6 +349,24 @@ export const projectMedia = {
       "title": "Купели — пример оформления 2",
       "width": 612,
       "height": 300
+    },
+    {
+      "src": "/images/projects/plunge-20261025-01.jpg",
+      "title": "Купель — фотография 1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "src": "/images/projects/plunge-20261025-02.jpg",
+      "title": "Купель — фотография 2",
+      "width": 1211,
+      "height": 916
+    },
+    {
+      "src": "/images/projects/plunge-20261025-03.jpg",
+      "title": "Купель — фотография 3",
+      "width": 971,
+      "height": 737
     }
   ],
   "sauna": [
@@ -375,6 +393,30 @@ export const projectMedia = {
       "title": "Модульная баня — пример 5",
       "width": 535,
       "height": 348
+    },
+    {
+      "src": "/images/projects/sauna-20261025-01.jpg",
+      "title": "Модульная баня — фотография 1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "src": "/images/projects/sauna-20261025-02.jpg",
+      "title": "Модульная баня — фотография 2",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "src": "/images/projects/sauna-20261025-03.jpg",
+      "title": "Модульная баня — фотография 3",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "src": "/images/projects/sauna-20261025-04.jpg",
+      "title": "Модульная баня — фотография 4",
+      "width": 900,
+      "height": 1600
     },
     {
       "src": "/images/projects/sauna-07.jpg",
