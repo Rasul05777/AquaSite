@@ -3,7 +3,7 @@
 .hero>.hero-photo{position:absolute;inset:108px auto 0 20%;z-index:-2;display:block;width:90%;height:calc(100% - 108px);min-height:0;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center;border-radius:0;filter:none}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#041923 0%,rgba(4,25,35,1) 20%,rgba(4,25,35,.8) 28%,rgba(4,25,35,.28) 39%,transparent 53%),linear-gradient(0deg,rgba(2,18,23,.16),transparent 45%)}
 .hero .header{height:108px;min-height:108px;background:rgba(4,27,39,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #b8dae233;padding-inline:clamp(24px,4vw,72px);gap:22px}
-.header .brand-image{width:160px;height:auto}
+.header .brand-image{width:160px;height:auto;mix-blend-mode:screen;clip-path:inset(0 0 12% 0)}
 .header .nav a{background:#ffffff05;border-color:#83b6c5a6;min-height:56px;border-radius:14px;font-weight:650}
 .header .nav a:first-child{background:#ffffff05}.header .nav a:hover{background:#ffffff15}
 .header-actions{border-left-color:#a8c6cf66;padding-left:24px;gap:24px}
