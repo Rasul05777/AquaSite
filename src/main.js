@@ -18,7 +18,7 @@ const cover = (image, title, symbol='drop') => image
   ? `<img src="${image}" alt="${title}" loading="lazy" width="700" height="470">`
   : `<span class="category-symbol" aria-hidden="true">${icon(symbol)}</span>`;
 const grid = document.querySelector('#project-grid');
-grid.innerHTML=categories.map(c=>`<article class="project-card"><a class="project-image" href="#projects/${c.id}" aria-label="Смотреть примеры: ${c.title}">${cover(c.image,c.title,c.symbol)}</a><div class="project-content"><h3><a href="#projects/${c.id}">${c.title}</a></h3><a class="project-link" href="#projects/${c.id}">Смотреть примеры ${icon('arrow')}</a></div></article>`).join('');
+grid.innerHTML=categories.map(c=>`<article class="project-card"><a class="project-image ${['park','private','fountains','sauna'].includes(c.id)?'reference-cover reference-'+c.id:''}" href="#projects/${c.id}" aria-label="Смотреть примеры: ${c.title}">${cover(c.image,c.title,c.symbol)}</a><div class="project-content"><h3><a href="#projects/${c.id}">${c.title}</a></h3><a class="project-link" href="#projects/${c.id}">Смотреть примеры ${icon('arrow')}</a></div></article>`).join('');
 document.querySelector('#filter-status').textContent=`Направлений проектов: ${categories.length}`;
 const detailDialog=document.querySelector('#detail-dialog');
 const quoteDialog=document.querySelector('#quote-dialog');

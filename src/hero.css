@@ -23,3 +23,37 @@
 @media(min-width:901px) and (max-width:1250px){.hero .header{gap:16px;padding-inline:28px}.header .brand-image{width:136px}.header .nav a{font-size:14px;min-width:100px;padding:12px 16px}.header-actions{padding-left:18px}.hero>.hero-summary{width:38%;padding-left:36px;min-height:620px}.hero h1{font-size:clamp(46px,4.7vw,58px)}.hero-content{gap:26px}.hero-kicker{font-size:12px}}
 @media(max-width:900px){.hero .header{height:96px;min-height:96px;padding-inline:28px}.hero .mobile-nav{top:96px}.hero>.hero-summary{width:58%;padding:40px 20px 44px 32px;min-height:640px}.hero>.hero-photo{top:96px;left:0;width:100%;height:calc(100% - 96px);object-position:center}.hero::before{background:linear-gradient(90deg,#041923 0%,rgba(4,25,35,.93) 25%,rgba(4,25,35,.7) 43%,rgba(4,25,35,.12) 75%)}.hero h1{font-size:48px}.hero-kicker{font-size:12px}.hero-intro p{font-size:19px}.hero-intro .button{font-size:15px;padding:17px 24px;min-height:56px}.header-actions{border:0;padding:0}.hero-project-link{font-size:14px}}
 @media(max-width:640px){.hero .header{height:88px;min-height:88px;padding-inline:16px;gap:10px}.header .brand-image{width:100px}.header-actions .header-phones .phone{font-size:11px;min-height:32px}.hero .mobile-nav{top:88px}.hero>.hero-photo{inset:auto 0 0;width:100%;height:auto;aspect-ratio:2/1;object-fit:contain}.hero::before{top:88px;background:linear-gradient(180deg,#041923 0%,#041923 56%,rgba(4,25,35,.94) 65%,transparent 85%)}.hero>.hero-summary{width:100%;min-height:0;padding:32px 22px calc(50vw + 10px);align-items:flex-start}.hero-content{gap:24px;max-width:480px}.hero h1{font-size:clamp(38px,10.8vw,58px);letter-spacing:-1px;line-height:1.04}.hero-kicker{font-size:11px;margin-bottom:25px;letter-spacing:.16em}.hero-intro p{font-size:18px;margin-bottom:24px}.hero-intro .button{font-size:15px;min-height:54px;padding:16px 26px}.hero-project-link{margin-top:0}.catalog-mode .hero>.hero-summary{display:none}}
+
+/* Reference artwork is cropped by the card viewport, never shown as UI. */
+.project-image.reference-cover{background-image:url('/images/project-covers-reference.png');background-repeat:no-repeat;background-size:313.5% 312%;aspect-ratio:490/328;height:auto}
+.project-image.reference-cover img{visibility:hidden}
+.project-image.reference-park{background-position:1.44% 2.01%}
+.project-image.reference-private{background-position:98.57% 2.01%}
+.project-image.reference-fountains{background-position:1.44% 74.43%}
+.project-image.reference-sauna{background-position:98.57% 74.43%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;min-width:0}
+@media(max-width:900px){
+ .hero{overflow:clip}
+ .hero .header{position:relative;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+ .hero>.hero-summary{width:100%;min-height:0;padding:24px 22px calc(50vw + 16px)}
+ .hero>.hero-photo{inset:auto 0 0;width:100%;height:auto;aspect-ratio:2/1;object-fit:contain}
+ .hero::before{inset:88px 0 0;background:linear-gradient(180deg,#041923 0%,#041923 60%,transparent 82%)}
+ .hero-content{max-width:540px;gap:16px}
+ .hero-kicker{font-size:10px;margin-bottom:18px;letter-spacing:.14em}
+ .hero h1{font-size:clamp(32px,8.5vw,46px);line-height:1.05;letter-spacing:-.8px}
+ .hero h1 span+span{margin-top:3px}
+ .hero-intro p{font-size:16px;margin-bottom:18px;max-width:340px}
+ .hero-intro .button{min-height:48px;font-size:14px;padding:13px 22px}
+ .hero-project-link{font-size:13px;min-height:40px}
+}
+@media(max-width:1000px) and (orientation:landscape) and (max-height:600px){
+ .hero>.hero-summary{width:48%;min-height:420px;padding:24px max(24px,env(safe-area-inset-left))}
+ .hero>.hero-photo{inset:108px 0 0;height:calc(100% - 108px);width:100%;aspect-ratio:auto;object-fit:cover;object-position:65% center}
+ .hero::before{inset:108px 0 0;background:linear-gradient(90deg,rgba(4,25,35,.95),rgba(4,25,35,.65) 35%,transparent 65%)}
+ .hero h1{font-size:34px}.hero-content{gap:16px}.hero-kicker{font-size:10px;margin-bottom:16px}.hero-intro p{font-size:15px;margin-bottom:16px}
+}
+@media(max-width:900px) and (orientation:landscape) and (max-height:600px){
+ .hero>.hero-photo{top:96px;height:calc(100% - 96px)}
+ .hero::before{top:96px}
+}

@@ -221,12 +221,6 @@ export const projectMedia = {
       "height": 1800
     },
     {
-      "src": "/images/projects/public-12.jpg",
-      "title": "Фото 12",
-      "width": 1350,
-      "height": 1800
-    },
-    {
       "src": "/images/projects/public-14.jpg",
       "title": "Фото 14",
       "width": 1800,
