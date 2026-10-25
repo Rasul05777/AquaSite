@@ -231,6 +231,12 @@ export const projectMedia = {
       "title": "Фото 19",
       "width": 817,
       "height": 640
+    },
+    {
+      "src": "/images/projects/public-seaside.png",
+      "title": "Открытые бассейны у моря с детскими горками",
+      "width": 1280,
+      "height": 960
     }
   ],
   "fountains": [
