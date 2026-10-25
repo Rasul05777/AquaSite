@@ -11,7 +11,7 @@ const mediaVersion = await version('dist/src/project-media.js');
 const main = (await readFile('dist/src/main.js','utf8')).replace("'./project-media.js'", `'./project-media.js?v=${mediaVersion}'`);
 await writeFile('dist/src/main.js',main);
 let html=await readFile('dist/index.html','utf8');
-for(const file of ['styles.css','refinement.css','main.js']){
+for(const file of ['styles.css','refinement.css','hero.css','main.js']){
   html=html.replace(`/src/${file}`,`/src/${file}?v=${await version('dist/src/'+file)}`);
 }
 await writeFile('dist/index.html',html);
