@@ -1,6 +1,12 @@
 export const projectMedia = {
   "park": [
     {
+      "src": "/images/projects/park-07.jpg",
+      "title": "Фото 07",
+      "width": 1800,
+      "height": 1013
+    },
+    {
       "src": "/images/projects/park-01.jpg",
       "title": "Фото 01",
       "width": 948,
@@ -25,6 +31,48 @@ export const projectMedia = {
       "height": 652
     },
     {
+      "src": "/images/projects/park-11.jpg",
+      "title": "Фото 11",
+      "width": 1800,
+      "height": 1350
+    },
+    {
+      "src": "/images/projects/park-12.jpg",
+      "title": "Фото 12",
+      "width": 1800,
+      "height": 1350
+    },
+    {
+      "src": "/images/projects/park-14.jpg",
+      "title": "Фото 14",
+      "width": 1350,
+      "height": 1800
+    },
+    {
+      "src": "/images/projects/park-16.jpg",
+      "title": "Фото 16",
+      "width": 1350,
+      "height": 1800
+    },
+    {
+      "src": "/images/projects/park-17.jpg",
+      "title": "Фото 17",
+      "width": 1350,
+      "height": 1800
+    },
+    {
+      "src": "/images/projects/public-14.jpg",
+      "title": "Фото 14",
+      "width": 1800,
+      "height": 1013
+    },
+    {
+      "src": "/images/projects/public-seaside.png",
+      "title": "Открытые бассейны у моря с детскими горками",
+      "width": 1280,
+      "height": 960
+    },
+    {
       "src": "/images/projects/park-05.mp4",
       "poster": "/images/projects/park-05-poster.jpg",
       "type": "video",
@@ -35,12 +83,6 @@ export const projectMedia = {
       "poster": "/images/projects/park-06-poster.jpg",
       "type": "video",
       "title": "Видео 06"
-    },
-    {
-      "src": "/images/projects/park-07.jpg",
-      "title": "Фото 07",
-      "width": 1800,
-      "height": 1013
     },
     {
       "src": "/images/projects/park-08.mp4",
@@ -55,46 +97,16 @@ export const projectMedia = {
       "title": "Видео 09"
     },
     {
-      "src": "/images/projects/park-11.jpg",
-      "title": "Фото 11",
-      "width": 1800,
-      "height": 1350
-    },
-    {
-      "src": "/images/projects/park-12.jpg",
-      "title": "Фото 12",
-      "width": 1800,
-      "height": 1350
-    },
-    {
       "src": "/images/projects/park-13.mp4",
       "poster": "/images/projects/park-13-poster.jpg",
       "type": "video",
       "title": "Видео 13"
     },
     {
-      "src": "/images/projects/park-14.jpg",
-      "title": "Фото 14",
-      "width": 1350,
-      "height": 1800
-    },
-    {
       "src": "/images/projects/park-15.mp4",
       "poster": "/images/projects/park-15-poster.jpg",
       "type": "video",
       "title": "Видео 15"
-    },
-    {
-      "src": "/images/projects/park-16.jpg",
-      "title": "Фото 16",
-      "width": 1350,
-      "height": 1800
-    },
-    {
-      "src": "/images/projects/park-17.jpg",
-      "title": "Фото 17",
-      "width": 1350,
-      "height": 1800
     }
   ],
   "concrete": [
@@ -173,6 +185,18 @@ export const projectMedia = {
       "height": 1350
     },
     {
+      "src": "/images/projects/public-10.jpg",
+      "title": "Фото 10",
+      "width": 1350,
+      "height": 1800
+    },
+    {
+      "src": "/images/projects/public-11.jpg",
+      "title": "Фото 11",
+      "width": 1350,
+      "height": 1800
+    },
+    {
       "src": "/images/projects/public-04.jpg",
       "title": "Фото 04",
       "width": 1800,
@@ -209,34 +233,10 @@ export const projectMedia = {
       "height": 960
     },
     {
-      "src": "/images/projects/public-10.jpg",
-      "title": "Фото 10",
-      "width": 1350,
-      "height": 1800
-    },
-    {
-      "src": "/images/projects/public-11.jpg",
-      "title": "Фото 11",
-      "width": 1350,
-      "height": 1800
-    },
-    {
-      "src": "/images/projects/public-14.jpg",
-      "title": "Фото 14",
-      "width": 1800,
-      "height": 1013
-    },
-    {
       "src": "/images/projects/public-19.jpg",
       "title": "Фото 19",
       "width": 817,
       "height": 640
-    },
-    {
-      "src": "/images/projects/public-seaside.png",
-      "title": "Открытые бассейны у моря с детскими горками",
-      "width": 1280,
-      "height": 960
     }
   ],
   "fountains": [
@@ -371,16 +371,22 @@ export const projectMedia = {
   ],
   "sauna": [
     {
-      "src": "/images/projects/sauna-02.jpg",
-      "title": "Модульная баня — пример 2",
-      "width": 765,
-      "height": 343
+      "src": "/images/projects/sauna-20261025-03.jpg",
+      "title": "Модульная баня — фотография 3",
+      "width": 960,
+      "height": 1280
     },
     {
-      "src": "/images/projects/sauna-03.jpg",
-      "title": "Модульная баня — пример 3",
-      "width": 802,
-      "height": 281
+      "src": "/images/projects/sauna-20261025-04.jpg",
+      "title": "Модульная баня — фотография 4",
+      "width": 900,
+      "height": 1600
+    },
+    {
+      "src": "/images/projects/sauna-20261025-01.jpg",
+      "title": "Модульная баня — фотография 1",
+      "width": 1280,
+      "height": 960
     },
     {
       "src": "/images/projects/sauna-04.jpg",
@@ -395,27 +401,9 @@ export const projectMedia = {
       "height": 348
     },
     {
-      "src": "/images/projects/sauna-20261025-01.jpg",
-      "title": "Модульная баня — фотография 1",
-      "width": 1280,
-      "height": 960
-    },
-    {
       "src": "/images/projects/sauna-20261025-02.jpg",
       "title": "Модульная баня — фотография 2",
       "width": 1200,
-      "height": 1600
-    },
-    {
-      "src": "/images/projects/sauna-20261025-03.jpg",
-      "title": "Модульная баня — фотография 3",
-      "width": 960,
-      "height": 1280
-    },
-    {
-      "src": "/images/projects/sauna-20261025-04.jpg",
-      "title": "Модульная баня — фотография 4",
-      "width": 900,
       "height": 1600
     },
     {
@@ -447,6 +435,12 @@ export const projectMedia = {
       "title": "Модульная баня — пример 11",
       "width": 501,
       "height": 514
+    },
+    {
+      "src": "/images/projects/sauna-03.jpg",
+      "title": "Модульная баня — пример 3",
+      "width": 802,
+      "height": 281
     }
   ]
 };
