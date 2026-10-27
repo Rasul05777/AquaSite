@@ -58,16 +58,14 @@ body{margin:0;min-width:0}
  .hero::before{top:96px}
 }
 
-/* Portrait phones use one photographic hero, not a separate image below the copy. */
+/* Portrait layout: intact photo followed by compact, readable copy. */
 @media(max-width:900px) and (orientation:portrait){
- .hero{--mobile-header-height:96px}
- .hero>.hero-summary{min-height:540px;min-height:clamp(520px,calc(100svh - var(--mobile-header-height)),720px);padding:28px 22px 32px;align-items:flex-start}
- .hero>.hero-photo{inset:var(--mobile-header-height) 0 0;height:calc(100% - var(--mobile-header-height));width:100%;aspect-ratio:auto;object-fit:cover;object-position:65% center}
- .hero::before{inset:var(--mobile-header-height) 0 0;background:linear-gradient(90deg,rgba(3,22,32,.82),rgba(3,22,32,.48) 65%,rgba(3,22,32,.12)),linear-gradient(180deg,rgba(3,22,32,.3),transparent 60%)}
- .hero-content{gap:20px;max-width:460px}
- .hero h1{text-shadow:0 2px 16px #00151cb3}
- .hero-kicker{color:#a5e7f5}
- .hero-intro p{color:#fff;text-shadow:0 1px 8px #00151c}
- .hero-project-link{text-shadow:0 1px 8px #00151c}
+ .hero>.hero-photo{position:relative;inset:auto;z-index:auto;display:block;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:2/1;object-fit:contain;object-position:center;filter:none}
+ .hero::before{display:none}
+ .hero>.hero-summary{width:100%;min-height:0;padding:24px 22px 28px;background:#041923;align-items:flex-start}
+ .hero-content{gap:16px;max-width:540px}
+ .hero-kicker{margin-bottom:14px;font-size:10px;color:#a5e7f5}
+ .hero h1{font-size:clamp(30px,8vw,42px);line-height:1.06;text-shadow:none}
+ .hero-intro p{font-size:16px;margin-bottom:18px;color:#d0dbe1;text-shadow:none}
+ .hero-project-link{text-shadow:none}
 }
-@media(max-width:640px) and (orientation:portrait){.hero{--mobile-header-height:88px}}
