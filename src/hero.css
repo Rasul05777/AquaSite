@@ -58,14 +58,39 @@ body{margin:0;min-width:0}
  .hero::before{top:96px}
 }
 
-/* Portrait layout: intact photo followed by compact, readable copy. */
-@media(max-width:900px) and (orientation:portrait){
- .hero>.hero-photo{position:relative;inset:auto;z-index:auto;display:block;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:2/1;object-fit:contain;object-position:center;filter:none}
- .hero::before{display:none}
- .hero>.hero-summary{width:100%;min-height:0;padding:24px 22px 28px;background:#041923;align-items:flex-start}
- .hero-content{gap:16px;max-width:540px}
- .hero-kicker{margin-bottom:14px;font-size:10px;color:#a5e7f5}
- .hero h1{font-size:clamp(30px,8vw,42px);line-height:1.06;text-shadow:none}
- .hero-intro p{font-size:16px;margin-bottom:18px;color:#d0dbe1;text-shadow:none}
- .hero-project-link{text-shadow:none}
+/* Phone portrait layout follows the supplied reference; other viewports keep their layout. */
+.hero-directions{display:none}
+@media(max-width:640px) and (orientation:portrait){
+ .hero .header{height:64px;min-height:64px;padding-inline:max(6.6vw,env(safe-area-inset-left));gap:12px;background:#041d28}
+ .header .brand{width:100px;background:url('/images/aquaspektr-logo-transparent.svg') center/contain no-repeat}
+ .header .brand-image{width:100%;opacity:0}
+ .header-actions .header-phones .phone{font-size:clamp(10px,2.85vw,16px);min-height:20px;padding:0;line-height:1.5;font-weight:700}
+ .header-phones{gap:0}
+ .hero .menu-toggle{width:28px;height:44px;gap:5px}
+ .hero .menu-toggle span{width:22px;height:2px}
+ .hero .menu-toggle::after{content:"";width:22px;height:2px;background:currentColor}
+ .hero .menu-toggle[aria-expanded=true]::after{display:none}
+ .hero .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+ .hero .menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+ .hero .mobile-nav{top:64px}
+ .hero>.hero-photo,.hero::before{display:none}
+ .hero>.hero-summary{display:flex;flex-direction:column;justify-content:space-between;width:100%;min-height:189vw;padding:20vw max(6.6vw,env(safe-area-inset-left)) 10vw;background:#041923 url('/images/hero-mobile-reference.png') center/cover no-repeat;gap:42vw}
+ .hero-content{gap:4vw;max-width:none;width:100%;padding:0;margin:0}
+ .hero-kicker{margin-bottom:2vw;font-size:clamp(11px,2.9vw,18px);line-height:1.5;letter-spacing:.16em;color:#83dcef}
+ .hero-kicker>span{display:block}.hero-kicker>.kicker-divider{display:none}
+ .hero-kicker::after{content:"";display:block;width:8.4vw;height:2px;background:#50d8ed;margin-top:3vw}
+ .hero h1{font-size:10.5vw;line-height:1.02;letter-spacing:-.025em;font-weight:750;text-shadow:0 2px 12px #00151c50}
+ .hero h1 span+span{margin-top:0}
+ .hero-intro{width:100%;max-width:none}
+ .hero-intro p{font-size:4.6vw;line-height:1.22;max-width:60vw;margin-bottom:5vw;color:#c6cdd1;text-shadow:0 1px 8px #00151c}
+ .hero-intro .desktop-break{display:none}
+ .hero-intro .button{width:62.5vw;max-width:100%;min-width:0;min-height:12.2vw;padding:3vw 5vw;font-size:3.6vw;font-weight:800;gap:3vw;border-radius:999px;background:#fff;color:#081d3a;border:1px solid #e8f3f7;justify-content:space-between;white-space:nowrap}
+ .hero-intro .button:hover{background:#e5f6fb}
+ .hero-intro .button svg{width:4.5vw;height:4.5vw}
+ .hero-project-link{display:none}
+ .hero-directions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:4vw}
+ .hero-directions a{display:flex;align-items:center;flex-direction:column;text-align:center;color:#fff;font-size:3.2vw;line-height:1.2;font-weight:700;text-decoration:none;gap:3vw}
+ .hero-directions svg{width:11vw;height:11vw;stroke:#65cfe9;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+ .hero-directions a::after{content:"";width:8.4vw;height:2px;background:#50d8ed}
+ .catalog-mode .hero>.hero-summary{display:none}
 }
