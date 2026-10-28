@@ -383,6 +383,12 @@ export const projectMedia = {
       "height": 1024
     },
     {
+      "src": "/images/projects/sun-loungers-poolside.png",
+      "title": "Ряд синих шезлонгов на деревянной террасе у бассейна",
+      "width": 643,
+      "height": 398
+    },
+    {
       "src": "/images/projects/sun-loungers-01.png",
       "title": "Синие шезлонги у бассейна",
       "width": 315,
