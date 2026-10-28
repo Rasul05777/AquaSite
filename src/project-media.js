@@ -241,6 +241,12 @@ export const projectMedia = {
   ],
   "fountains": [
     {
+      "src": "/images/projects/fountains-landscape.png",
+      "title": "Проект городского фонтана с озеленением и прогулочными дорожками",
+      "width": 1283,
+      "height": 510
+    },
+    {
       "src": "/images/projects/fountains-02.mp4",
       "poster": "/images/projects/fountains-02-poster.jpg",
       "type": "video",
@@ -367,6 +373,20 @@ export const projectMedia = {
       "title": "Купель — фотография 3",
       "width": 971,
       "height": 737
+    }
+  ],
+  "sun-loungers": [
+    {
+      "src": "/images/projects/sun-loungers-01.png",
+      "title": "Синие шезлонги у бассейна",
+      "width": 315,
+      "height": 561
+    },
+    {
+      "src": "/images/projects/sun-loungers-02.png",
+      "title": "Шезлонг с белым каркасом и синей лежанкой",
+      "width": 744,
+      "height": 558
     }
   ],
   "sauna": [

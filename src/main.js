@@ -12,7 +12,8 @@ const categories = [
   ]},{id:'concrete',title:'Бетонные бассейны',media:projectMedia.concrete}]},
   {id:'fountains',title:'Городские фонтаны',image:'/images/projects/fountains-04-poster.jpg',media:projectMedia.fountains},
   {id:'plunge',title:'Купели',image:'/images/projects/plunge-01.jpg',media:projectMedia.plunge},
-  {id:'sauna',title:'Модульные Бани',image:'/images/projects/sauna-03.jpg',media:projectMedia.sauna}
+  {id:'sauna',title:'Модульные Бани',image:'/images/projects/sauna-03.jpg',media:projectMedia.sauna},
+  {id:'sun-loungers',title:'Шезлонги',image:'/images/projects/sun-loungers-cover.png',media:projectMedia['sun-loungers']}
 ];
 const cover = (image, title, symbol='drop') => image
   ? `<img src="${image}" alt="${title}" loading="lazy" width="700" height="470">`
