@@ -377,8 +377,8 @@ export const projectMedia = {
   ],
   "sun-loungers": [
     {
-      "src": "/images/projects/sun-loungers-mare.png",
-      "title": "Шезлонг Mare — описание, характеристики и размеры",
+      "src": "/images/projects/sun-loungers-mare-offer.png",
+      "title": "Шезлонг Mare — акция, описание и характеристики",
       "width": 1536,
       "height": 1024
     },

@@ -1,4 +1,4 @@
-import { projectMedia } from './project-media.js?v=07e9a5475be2';
+import { projectMedia } from './project-media.js?v=bad3c5740f95';
 const icon = (name) => `<svg aria-hidden="true"><use href="#${name}"/></svg>`;
 const categories = [
   {id:'park', title:'Аквапарки', image:'/images/waterpark.png', media:projectMedia.park},
