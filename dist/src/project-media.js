@@ -377,6 +377,12 @@ export const projectMedia = {
   ],
   "sun-loungers": [
     {
+      "src": "/images/projects/sun-loungers-mare.png",
+      "title": "Шезлонг Mare — описание, характеристики и размеры",
+      "width": 1536,
+      "height": 1024
+    },
+    {
       "src": "/images/projects/sun-loungers-01.png",
       "title": "Синие шезлонги у бассейна",
       "width": 315,
